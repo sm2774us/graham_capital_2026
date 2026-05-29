@@ -19,6 +19,7 @@
 | # | Category | Question |
 |---|----------|---------|
 | **BEHAVIORAL** | | |
+| | | |
 | [Q1](#q1-walk-me-through-your-background-and-why-graham-capital) | Background & Fit | Walk me through your background and why Graham Capital. |
 | [Q2](#q2-describe-a-systematic-signal-you-built-end-to-end--from-hypothesis-to-live-deployment) | Research Ownership | Describe a systematic signal you built end-to-end — from hypothesis to live deployment. |
 | [Q3](#q3-tell-me-about-a-signal-or-model-that-failed-and-what-you-learned) | Failure & Learning | Tell me about a signal or model that failed and what you learned. |
@@ -28,6 +29,7 @@
 | [Q7](#q7) | Prioritization | How do you decide what research ideas to pursue vs. shelve? |
 | [Q8](#q8) | Production Ownership | Walk me through your experience taking a strategy from research prototype to live trading. |
 | **SIGNAL DEVELOPMENT** | | |
+| | | |
 | [Q9](#q9) | Trend Following | How do you design, validate, and deploy a trend-following signal for global macro futures? |
 | [Q10](#q10) | Carry | Explain carry as an alpha source — construction, risks, and how you diversify it. |
 | [Q11](#q11) | Mean Reversion | How do you distinguish genuine mean reversion from noise? |
@@ -36,6 +38,7 @@
 | [Q14](#q14) | Regime Detection | How do you identify market regimes and adapt signals accordingly? |
 | [Q15](#q15) | Factor Orthogonalization | How do you ensure your new signal adds genuine diversification to the existing library? |
 | **MACHINE LEARNING & NLP** | | |
+| | | |
 | [Q16](#q16) | NLP for Macro | How do you extract trading signals from financial text data using NLP? |
 | [Q17](#q17) | LLMs in Research | How do you use large language models in systematic macro research? |
 | [Q18](#q18) | Overfitting | What is your framework for preventing overfitting in ML-driven signals? |
@@ -44,29 +47,35 @@
 | [Q21](#q21) | Feature Engineering | What feature engineering techniques are most important in macro time-series modeling? |
 | [Q22](#q22) | HMM & Regime Models | Describe how you would use a Hidden Markov Model for regime classification. |
 | **PORTFOLIO CONSTRUCTION & RISK** | | |
+| | | |
 | [Q23](#q23) | Portfolio Optimization | How do you construct a diversified multi-signal portfolio? |
 | [Q24](#q24) | Risk Budgeting | Explain volatility targeting and risk budgeting in a CTA context. |
 | [Q25](#q25) | Drawdown Control | How do you control drawdowns without sacrificing long-run alpha? |
 | [Q26](#q26) | Transaction Costs | How do you model and incorporate transaction costs into backtesting? |
 | [Q27](#q27) | Leverage & Capacity | How do you think about strategy capacity and leverage constraints? |
 | **STATISTICS & MATHEMATICS** | | |
+| | | |
 | [Q28](#q28) | Time-Series | What are the key statistical issues in financial time-series modeling? |
 | [Q29](#q29) | GARCH | Explain GARCH/EGARCH/HAR-RV and when to use each. |
 | [Q30](#q30) | Bayesian Inference | How do you apply Bayesian methods to signal sizing and parameter estimation? |
 | [Q31](#q31) | Cross-Validation | Explain walk-forward and Combinatorial Purged Cross-Validation (CPCV). |
 | [Q32](#q32) | Multiple Testing | How do you handle the multiple testing problem in a 30+ signal library? |
 | **CODING & IMPLEMENTATION** | | |
+| | | |
 | [Q33](#q33) | Python TCA Pipeline | Write a Python TCA pipeline that identifies slippage drivers. |
 | [Q34](#q34) | Volume Forecasting | Build a volume forecasting model for a thinly traded commodity futures contract. |
 | [Q35](#q35) | Trend Signal in C++ | Implement a production-grade EWMA trend signal in C++26. |
 | [Q36](#q36) | Backtest Engine | Outline a rigorous backtesting framework in Python with CPCV. |
 | **FIRM-SPECIFIC** | | |
+| | | |
 | [Q37](#q37) | GCM Strategy Fit | How does your research background align with Graham's carry/trend/macro/value framework? |
 | [Q38](#q38) | Improving Existing Signals | How would you approach improving an existing trend-following signal at Graham? |
 | [Q39](#q39) | NLP at GCM | How would you build an NLP pipeline to extract macro signals from central bank communications? |
 | **Q&A — YOUR QUESTIONS** | | |
+| | | |
 | [Q40](#q40-best-questions-to-ask-antoine-ledoux-at-the-end-of-the-interview) | Questions to Ask | Best questions to ask Antoine Ledoux at the end of the interview. |
 | **Summarization** | | |
+| | | |
 | [Summary](#summarized-question-categorization-table) | Summary | Summarized Question Categorization Table |
 | [Cheatsheet](#quick-revision-cheatsheet) | Cheatsheet | Quick Revision Cheatsheet |
 
