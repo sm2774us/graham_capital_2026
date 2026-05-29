@@ -1,0 +1,2925 @@
+# `Graham Capital Management` — **Quantitative Research Analyst**
+## Interview Preparation: Shaikat Majumdar  
+### **Interviewer: `Antoine Ledoux`** | NLP & AI in Global Macro  
+### **Date: Wednesday, June 3, 2026** | 30-Minute Screening  
+
+---
+---
+
+[↩️ Back to README.md](./README.md#-table-of-contents)
+
+---
+---
+
+
+## Table of Contents
+
+| # | Category | Question |
+|---|----------|---------|
+| **BEHAVIORAL** | | |
+| [Q1](#q1-walk-me-through-your-background-and-why-graham-capital) | Background & Fit | Walk me through your background and why Graham Capital. |
+| [Q2](#q2-describe-a-systematic-signal-you-built-end-to-end--from-hypothesis-to-live-deployment) | Research Ownership | Describe a systematic signal you built end-to-end — from hypothesis to live deployment. |
+| [Q3](#q3-tell-me-about-a-signal-or-model-that-failed-and-what-you-learned) | Failure & Learning | Tell me about a signal or model that failed and what you learned. |
+| [Q4](#q4-how-do-you-balance-independent-research-with-team-driven-objectives) | Collaboration | How do you balance independent research with team-driven objectives? |
+| [Q5](#q5) | Scientific Method | How do you apply the scientific method in your research process? |
+| [Q6](#q6) | Communication | How do you explain complex quant ideas to non-quant stakeholders? |
+| [Q7](#q7) | Prioritization | How do you decide what research ideas to pursue vs. shelve? |
+| [Q8](#q8) | Production Ownership | Walk me through your experience taking a strategy from research prototype to live trading. |
+| **SIGNAL DEVELOPMENT** | | |
+| [Q9](#q9) | Trend Following | How do you design, validate, and deploy a trend-following signal for global macro futures? |
+| [Q10](#q10) | Carry | Explain carry as an alpha source — construction, risks, and how you diversify it. |
+| [Q11](#q11) | Mean Reversion | How do you distinguish genuine mean reversion from noise? |
+| [Q12](#q12) | Signal Combination | How do you combine orthogonal signals into a composite forecast? |
+| [Q13](#q13) | Signal Decay | How do you measure and manage signal decay? |
+| [Q14](#q14) | Regime Detection | How do you identify market regimes and adapt signals accordingly? |
+| [Q15](#q15) | Factor Orthogonalization | How do you ensure your new signal adds genuine diversification to the existing library? |
+| **MACHINE LEARNING & NLP** | | |
+| [Q16](#q16) | NLP for Macro | How do you extract trading signals from financial text data using NLP? |
+| [Q17](#q17) | LLMs in Research | How do you use large language models in systematic macro research? |
+| [Q18](#q18) | Overfitting | What is your framework for preventing overfitting in ML-driven signals? |
+| [Q19](#q19) | Gradient Boosting | When do you use gradient boosting vs. neural networks for return prediction? |
+| [Q20](#q20) | Alternative Data | How do you evaluate a new alternative dataset for alpha potential? |
+| [Q21](#q21) | Feature Engineering | What feature engineering techniques are most important in macro time-series modeling? |
+| [Q22](#q22) | HMM & Regime Models | Describe how you would use a Hidden Markov Model for regime classification. |
+| **PORTFOLIO CONSTRUCTION & RISK** | | |
+| [Q23](#q23) | Portfolio Optimization | How do you construct a diversified multi-signal portfolio? |
+| [Q24](#q24) | Risk Budgeting | Explain volatility targeting and risk budgeting in a CTA context. |
+| [Q25](#q25) | Drawdown Control | How do you control drawdowns without sacrificing long-run alpha? |
+| [Q26](#q26) | Transaction Costs | How do you model and incorporate transaction costs into backtesting? |
+| [Q27](#q27) | Leverage & Capacity | How do you think about strategy capacity and leverage constraints? |
+| **STATISTICS & MATHEMATICS** | | |
+| [Q28](#q28) | Time-Series | What are the key statistical issues in financial time-series modeling? |
+| [Q29](#q29) | GARCH | Explain GARCH/EGARCH/HAR-RV and when to use each. |
+| [Q30](#q30) | Bayesian Inference | How do you apply Bayesian methods to signal sizing and parameter estimation? |
+| [Q31](#q31) | Cross-Validation | Explain walk-forward and Combinatorial Purged Cross-Validation (CPCV). |
+| [Q32](#q32) | Multiple Testing | How do you handle the multiple testing problem in a 30+ signal library? |
+| **CODING & IMPLEMENTATION** | | |
+| [Q33](#q33) | Python TCA Pipeline | Write a Python TCA pipeline that identifies slippage drivers. |
+| [Q34](#q34) | Volume Forecasting | Build a volume forecasting model for a thinly traded commodity futures contract. |
+| [Q35](#q35) | Trend Signal in C++ | Implement a production-grade EWMA trend signal in C++26. |
+| [Q36](#q36) | Backtest Engine | Outline a rigorous backtesting framework in Python with CPCV. |
+| **FIRM-SPECIFIC** | | |
+| [Q37](#q37) | GCM Strategy Fit | How does your research background align with Graham's carry/trend/macro/value framework? |
+| [Q38](#q38) | Improving Existing Signals | How would you approach improving an existing trend-following signal at Graham? |
+| [Q39](#q39) | NLP at GCM | How would you build an NLP pipeline to extract macro signals from central bank communications? |
+| **Q&A — YOUR QUESTIONS** | | |
+| [Q40](#q40-best-questions-to-ask-antoine-ledoux-at-the-end-of-the-interview) | Questions to Ask | Best questions to ask Antoine Ledoux at the end of the interview. |
+| **Summarization** | | |
+| [Summary](#summarized-question-categorization-table) | Summary | Summarized Question Categorization Table |
+| [Cheatsheet](#quick-revision-cheatsheet) | Cheatsheet | Quick Revision Cheatsheet |
+
+---
+
+## Interview Format
+
+```
+30-minute video screening (Microsoft Teams)
+├── ~10 min  Behavioral / background fit
+├── ~15 min  Technical depth (signal dev, ML/NLP, statistics)
+└── ~5  min  Your questions for Antoine
+```
+
+**Antoine Ledoux profile:** MIT MEng + CentraleSupélec MS (Applied Math/Physics/Engineering). Focuses on NLP techniques applied to financial news at GCM. Former Senior Data Scientist at Amadeus (airline price prediction, market segmentation). Former structural engineer on nuclear power plants. **He will probe methodology two levels deep on every technique.** Expect follow-up questions like: "How exactly did you validate that?" and "What breaks under non-stationarity?"
+
+---
+
+## SECTION I — BEHAVIORAL QUESTIONS
+
+---
+
+<a name="q1"></a>
+### Q1. Walk me through your background and why Graham Capital.
+
+**What they want:** A coherent narrative that maps your 17-year arc directly to Graham's systematic macro mandate. They want to see that you are not a generalist but a specialist whose career trajectory logically arrives at GCM.
+
+**Model Answer:**
+
+> "My career has been a continuous deepening of systematic macro research. I started at Millburn Ridgefield in 2008, where I spent 14 years building what became a 30+ signal library across global macro futures and liquid FX pairs. The culture at Millburn was deeply scientific — every signal had to survive Combinatorial Purged Cross-Validation before it touched capital, and I internalized that discipline completely. I worked across the full alpha spectrum: trend, carry, value, mean-reversion, and macro event-driven models. I also built the volatility forecasting infrastructure — GARCH, EGARCH, HAR-RV — that fed both our alpha signals and our VaR estimates.
+>
+> From there I moved to Highbridge/JPMorgan where I worked on the execution research side of systematic strategies — adverse selection in limit-order-book data, IS benchmarking versus VWAP and Arrival Price, PCA and autoencoder pipelines to extract features from high-dimensional market microstructure. That gave me a dimension most pure alpha researchers lack: I understand how strategies behave in production, not just in simulation.
+>
+> At Balyasny since May 2025 I've been running a multi-asset systematic macro pod — FX, Commodities, Fixed Income — with full P&L accountability. I combine carry, trend, and value through ensemble weighting with HMM-based regime classification to dynamically adjust allocations.
+>
+> Graham is the natural destination. The Quant Strategies group manages $22B through exactly the framework I've spent 17 years building — trend, carry, value, quant macro — with the scientific rigor and HPC infrastructure I thrive in. Antoine's NLP/AI in Global Macro work is the natural extension of my signal research — text-derived macro signals are the next orthogonal source I want to develop systematically, and this role gives me that frontier."
+
+**Key talking points specific to Graham:**
+- GCM's K4D multi-model approach (trend + carry + value + diversifying) mirrors your exact signal library
+- Graham's "scientific method" culture matches your CPCV-first validation discipline  
+- Antoine's NLP focus is additive to your existing quantitative signal stack
+- Graham's HPC and big data infrastructure is what you need to scale your ideas
+
+---
+
+**Follow-up 1 (Antoine's likely probe):** *"You mention NLP as the next frontier — what specifically have you done with text data so far, and what's the gap you want to close at Graham?"*
+
+**Answer:** "At Balyasny I've used NLP primarily for regime detection — feeding central bank communication sentiment scores (FOMC statements, ECB minutes) into my HMM classifier as a soft prior alongside price-based regime signals. I used FinBERT fine-tuned on financial news to generate document-level sentiment and topic embeddings, then fed those as additional features into my ensemble. The gap I want to close is moving from NLP as a feature in an existing model to NLP as a first-class alpha signal in its own right — building a structured event-extraction pipeline that can convert raw news into instrument-level directional signals with confidence scores, latency controls, and proper OOS validation. That is precisely what I understand Antoine has built at Graham."
+
+---
+
+**Follow-up 2 (Antoine's likely probe):** *"What do you see as the biggest risk in your NLP-derived signals relative to price-based signals?"*
+
+**Answer:** "Three structural risks. First, **non-stationarity of language** — the way central banks communicate shifts over time (Greenspan's opacity vs. post-2008 forward guidance vs. 2022 hiking cycle rhetoric), so models trained on 2010-2015 FOMC text may generalize poorly to 2025 regimes. You need rolling re-training windows with careful OOS design. Second, **event clustering** — major macro announcements cluster around economic crises, so your training set will oversample 2008, 2011, 2020 events, and naive cross-validation leaks that. CPCV with embargo periods around events is essential. Third, **alpha decay through reflexivity** — once NLP-based central bank sentiment signals become widely used, markets price them faster, compressing the return window. You need to continuously measure half-life and adapt."
+
+---
+
+<a name="q2"></a>
+### Q2. Describe a systematic signal you built end-to-end — from hypothesis to live deployment.
+
+**What they want:** Research ownership, scientific rigor, production awareness.
+
+**Model Answer (use the Millburn macro event signal as the centerpiece):**
+
+> "I'll walk you through the Central Bank event-driven signal I built at Millburn. The hypothesis originated from observing that realized volatility in rates and FX spiked asymmetrically around FOMC decisions — but the direction of the subsequent move had a predictable component if you conditioned on the surprise component of the statement.
+>
+> **Hypothesis formulation:** Markets pre-position into FOMC. The degree of pre-positioning, measured by the change in implied volatility surface (swaption vol vs. realized vol) in the 5 days before the meeting, predicts the post-announcement reversal magnitude. Orthogonal to this: the textual surprise in the statement itself (hawkish/dovish delta vs. the prior statement) predicts the directional move.
+>
+> **Data and feature engineering:** I sourced 20 years of FOMC statements, constructed a bag-of-words hawkishness score (later replaced with BERT embeddings), and computed the delta versus the prior statement. I computed IV/RV spreads on 1M swaptions for a pre-positioning feature. Target variable: the 5-day forward return in front-end Eurodollar futures post-announcement, normalized by realized vol.
+>
+> **Validation:** This is where most researchers cut corners. I used CPCV — Combinatorial Purged Cross-Validation with 6-fold paths and a 2-week embargo window around each announcement. This gave me confidence intervals on Sharpe rather than a point estimate. The signal survived with Sharpe 0.8 net of costs across all out-of-sample paths.
+>
+> **Implementation:** Python prototype, then the signal engine ported to C++ for latency-critical execution. I worked with the trading desk to calibrate position sizing — the signal was sized as a fraction of the overall event-risk budget using Bayesian adaptive weighting that scaled down in regimes where prior signals had been inconsistent.
+>
+> **Live performance:** The live Sharpe over 18 months matched the walk-forward estimate within 15%, which I consider good signal integrity."
+
+---
+
+**Follow-up 1:** *"How did you define the hawkishness score and what are its limitations?"*
+
+**Answer:** "Initially a domain-specific keyword dictionary weighted by TF-IDF. The limitation is that dictionaries don't capture syntactic negation ('not yet tightening' vs. 'tightening') or contextual shifts in meaning over time. I migrated to FinBERT embeddings, computing cosine distance in the embedding space between consecutive statements, then projecting onto a pre-trained hawkish/dovish axis derived from labeled Fed speeches. The limitation of the embedding approach is that it requires calibration data — you need labeled examples of what counts as hawkish in different monetary regimes, and that label quality decays as regimes change."
+
+---
+
+**Follow-up 2:** *"What happened during 2022 — the aggressive hiking cycle — and did your signal adapt?"*
+
+**Answer:** "2022 was a stress test. The signal was calibrated on a regime where Fed language was anchored by forward guidance, so surprises were relatively small. In 2022, the magnitude of hawkish pivots was unprecedented in the training data. Two things happened: First, the directional component of the signal worked well — the hawkish delta was consistently extreme — but the reversal component over-predicted reversals that didn't materialize because the Fed was genuinely committed to front-loading. Second, my Bayesian adaptive sizing saved the signal from contributing outsized losses — when the preceding 3 meetings all showed large, persistent directional moves rather than reversals, the reversal bet was automatically down-weighted. This confirmed the value of dynamic sizing over static parameters."
+
+---
+
+<a name="q3"></a>
+### Q3. Tell me about a signal or model that failed and what you learned.
+
+**Model Answer:**
+
+> "At Millburn I built a cross-sectional momentum signal for commodity futures that used 12-1 month returns as the ranking variable — standard Jegadeesh-Titman. The backtest looked excellent: annualized Sharpe of 1.4, max drawdown 12%. When we deployed it in 2014, it immediately entered a prolonged drawdown.
+>
+> **Root cause:** Three things I had missed or underweighted. First, **crowding** — by 2014, commodity momentum was one of the most widely implemented factors in CTA space. The backtest did not account for the crowding-induced drawdown risk that materializes when everyone exits the same side simultaneously. Second, **roll yield contamination** — I was using front-month contracts, and the ranking was contaminated by differences in roll yield across the commodity curve. Backwardated markets systematically ranked higher, conflating carry and momentum. Third, **look-ahead bias in rebalancing** — I was rebalancing on the last day of the month using closing prices for both signal construction and execution. In reality, there's a one-day lag.
+>
+> **Lessons internalized:** (1) Always decompose a signal into its component exposures — what fraction of your alpha is actually what you think it is? (2) Run robustness tests across rebalancing lag assumptions before concluding something works. (3) Build crowding diagnostics — track how many managers hold similar positions and how that affects expected signal decay. (4) For commodity signals, strip out carry explicitly and test momentum net of carry."
+
+---
+
+**Follow-up 1:** *"How do you measure crowding in a systematic way?"*
+
+**Answer:** "Several complementary approaches. For futures: look at CFTC Commitment of Traders data — the net speculative positioning as a fraction of open interest. When speculative net longs are at multi-year extremes, crowding risk is elevated. For cross-manager crowding: track correlation of daily PnL across known CTA funds — when correlations spike, it usually means convergent positioning. Quantitatively, I build a 'crowding factor' as the rate of change of net speculative positioning normalized by its 52-week range, and use it as a negative weight on signal confidence."
+
+---
+
+**Follow-up 2:** *"How did you fix the carry contamination problem?"*
+
+**Answer:** "I explicitly decomposed the commodity return into three components: spot return, roll yield, and convenience yield. I then ran the momentum ranking on the spot-return component only — essentially stripping out the carry term. Operationally this meant constructing a synthetic spot series using front/second month spread to back out the implied roll yield. After this decomposition, the pure spot momentum signal had lower Sharpe in-sample but dramatically better OOS stability and lower correlation to the pure carry signal — which was the goal."
+
+---
+
+<a name="q4"></a>
+### Q4. How do you balance independent research with team-driven objectives?
+
+**Model Answer:**
+
+> "My philosophy: independent research earns credibility, team alignment determines impact. At Millburn, the research culture gave researchers wide latitude to pursue independent hypotheses — but the signal library had to fit the portfolio's diversification mandate. My event-driven macro signals were self-initiated but I always framed them against the portfolio's existing exposure map to demonstrate orthogonality. At Highbridge, the feedback loop was tighter — we had weekly TCA reviews where the trading desk shared slippage observations, and those observations directly seeded my research agenda. At Balyasny, I own P&L, so the feedback loop is financial — if my signal doesn't contribute positively, there's no debate. The lesson from all three: research independence is most valuable when combined with relentless alignment on what the portfolio actually needs. I don't pursue signals that are interesting to me but redundant to the existing library."
+
+---
+
+**Follow-up 1:** *"At Graham, the Quant Strategies group uses common development tools and shared infrastructure. How do you adapt your research workflow to a collaborative codebase?"*
+
+**Answer:** "I strongly prefer collaborative infrastructure. At Millburn I helped design a research library standard — signal objects had a common interface (data ingestion, feature construction, backtest method, CPCV validation, live handler). Any researcher could review, replicate, and extend any signal. At Highbridge I worked in a shared Python environment with version-controlled research notebooks. My personal discipline: every signal is documented with (1) hypothesis and economic rationale, (2) data sources and construction method, (3) full CPCV output, (4) production implementation notes. This makes code review and knowledge transfer efficient."
+
+---
+
+**Follow-up 2:** *"How do you handle disagreement with a senior researcher about whether a signal is ready to go live?"*
+
+**Answer:** "I present the OOS evidence and let it speak. If a senior researcher wants additional validation, I run it — the cost of another robustness check is far lower than the cost of a bad live deployment. Where I push back is on reasoning that uses in-sample metrics as the primary evidence for go-live readiness. I've learned to frame my arguments around the question: 'What would have to be true for this signal to fail live?' If we can enumerate those risks and stress-test against them, the debate moves from subjective to empirical."
+
+---
+
+<a name="q5"></a>
+### Q5. How do you apply the scientific method in your research process?
+
+**Model Answer:**
+
+> "I treat every alpha idea as a falsifiable hypothesis. The workflow is: (1) **Hypothesis**: State the economic mechanism precisely. 'Momentum works in commodities because of supply inertia — production cycles are long, so price trends persist longer than in equities.' The mechanism determines the expected holding period and the conditions under which the signal should fail. (2) **Prediction**: Derive testable predictions from the mechanism. If supply inertia drives it, momentum should be stronger in physical commodities than financial futures, and should decay when the supply constraint is removed. (3) **Test**: Implement and validate with pre-specified metrics — minimum Sharpe, maximum drawdown, minimum number of independent bets (I require at least 100 OOS events). (4) **Falsification**: Actively try to break the signal. Test across sub-periods, asset classes, parameter perturbations. If the signal only works for one specific lookback window, it's likely overfitted. (5) **Documentation**: Write up the result as if publishing — methodology, data, results, limitations. This forces clarity and catches errors. The discipline of thinking about limitations before deployment has saved me from several bad live decisions."
+
+---
+
+**Follow-up 1:** *"What is your minimum bar for declaring a signal statistically significant in a financial context?"*
+
+**Answer:** "I use multiple criteria simultaneously. First, the OOS t-statistic on annualized mean return should exceed 2.0 — this maps to roughly p < 0.05, though in financial data the distribution is fat-tailed so I use bootstrap confidence intervals rather than assuming normality. Second, the signal must survive a minimum of 200 independent observations — in daily data with 60-day holding periods, that means roughly 12,000 calendar days or 50+ years, which is impractical. For shorter histories I use CPCV to multiply the number of OOS paths. Third, I require the Sharpe curve as a function of the key parameter (lookback, threshold) to be 'smooth and round' — a sharp peak at one specific value is a red flag for overfitting. Fourth, I require the signal's economic rationale to hold: if momentum only works in a 47-day lookback but not 45 or 50, I don't believe the mechanism story."
+
+---
+
+**Follow-up 2:** *"How do you handle the tension between statistical rigor and the practical need to deploy signals before you have 50 years of OOS data?"*
+
+**Answer:** "Accept that you're making decisions under uncertainty and be explicit about it. I use Bayesian credible intervals rather than frequentist p-values — they let me express my prior confidence in the economic mechanism and update with data. For a signal with a strong theoretical prior (e.g., carry in FX — there's 40 years of academic literature and a clear no-arbitrage economic rationale), I need less data to be confident. For a purely data-mined signal with weak theory, I need much more. The practical implication: I weight my research effort toward signals with strong theoretical priors, because they require less data to validate and decay more slowly as market structure evolves."
+
+---
+
+<a name="q6"></a>
+### Q6. How do you explain complex quant ideas to non-quant stakeholders?
+
+**Model Answer:**
+
+> "I use three techniques: (1) **Analogy to a familiar process** — I once explained Bayesian updating to a CIO by comparing it to a doctor who starts with a base-rate diagnosis and then updates it as test results come in. (2) **What it does vs. how it works** — most stakeholders need to understand the decision a model makes and its failure modes, not its mathematical internals. For our HMM regime classifier, I said: 'Think of it as a weather system that tells you whether we're in a trending regime or a choppy regime, and adjusts our signal weights accordingly. It's wrong sometimes, especially at transitions.' (3) **Confidence intervals, not point estimates** — I present signals with their confidence bands. 'Our trend signal expects a 1.2 Sharpe, with 80% confidence interval from 0.6 to 1.8. In a choppy sideways market, we'd expect the lower end of that range.' This builds appropriate expectations and prevents the 'why is the model wrong this month?' conversation."
+
+---
+
+**Follow-up 1:** *"How do you handle a situation where management wants to override a model based on discretionary judgment?"*
+
+**Answer:** "I distinguish between two types of override. A discretionary override to reduce risk (cutting size because of an upcoming tail event) is reasonable — the model doesn't know about geopolitical risks the PM sees. A discretionary override to increase a position against a model signal because the PM 'has conviction' is dangerous and usually wrong. I present the cost of discretionary overrides empirically — if I track all past overrides, what was the realized Sharpe of the overrides vs. the model? In my experience, this data usually ends the debate in favor of the model."
+
+---
+
+**Follow-up 2:** *"Antoine's background is in engineering — how would you communicate an NLP signal's reliability to him specifically?"*
+
+**Answer:** "Antoine would want to see: (1) the confusion matrix of the NLP classifier — precision, recall, F1 by class (hawkish/neutral/dovish). (2) The information coefficient (IC) between the NLP score and the subsequent return, with confidence intervals. (3) The out-of-sample IC decay curve — how fast does the predictive power decay as we move further from the training window. He'd also want to know what the classifier does when the language is novel — does it return low-confidence predictions or high-confidence wrong predictions? The latter is more dangerous. I'd present this as a reliability engineering problem: what is the failure mode distribution and how do I detect when the model is operating outside its calibrated regime."
+
+---
+
+<a name="q7"></a>
+### Q7. How do you decide what research ideas to pursue vs. shelve?
+
+**Model Answer:**
+
+> "I use a three-filter prioritization framework. **Filter 1 — Economic rationale**: Does the idea have a clear mechanism that explains *why* it should work and *when* it should fail? Ideas with no mechanism story get shelved immediately. **Filter 2 — Marginal contribution**: Even if the idea works, does it add diversification to what we already have? I map candidate signals against the existing signal library's factor loadings. If a new signal is 85% correlated with an existing one, the marginal Sharpe improvement is minimal — not worth the complexity. **Filter 3 — Implementation feasibility**: Can the signal be executed at the capacity and latency required? A signal that requires tick data to construct but only generates 10 trades per year for a 5-minute window is not implementable at scale. If an idea passes all three filters, it goes into the research queue. I time-box research: 2 weeks for initial signal construction and hypothesis test, go/no-go at that gate before investing more time."
+
+---
+
+**Follow-up 1:** *"How do you think about the trade-off between signal complexity and robustness?"*
+
+**Answer:** "I have a strong prior toward simplicity. The history of quant finance shows that simple, robust signals (EWMA momentum, carry) outperform elaborate ML constructions over the long run because they have fewer degrees of freedom to overfit. I use the principle of Occam's razor explicitly: if a simple EWMA trend signal achieves Sharpe 0.8 OOS, an LSTM needs to achieve meaningfully above 0.8 to justify its additional complexity and maintenance burden. In practice, I find that ML adds the most value in two places: (1) combining many weak signals through gradient boosting where the non-linear interactions are real and stable; (2) feature extraction from unstructured data (NLP) where the raw data can't be directly used as a signal."
+
+---
+
+**Follow-up 2:** *"At Graham, you'd be working across trend, carry, value, and quant macro — how do you prioritize research contributions across those four pillars?"*
+
+**Answer:** "I'd start by diagnosing where the current portfolio is weakest — which of the four pillars has the lowest live-vs-backtest Sharpe ratio? That gap is usually where there's the most room to improve. Based on my background, I'd likely contribute earliest to quant macro and carry, where my existing signal library maps most directly. For trend and value, I'd first deeply understand GCM's existing implementations before proposing modifications — I want to improve, not reinvent. My initial 90-day goal would be to read the full existing signal library, understand the portfolio's factor exposures, and identify 2-3 specific orthogonal research proposals."
+
+---
+
+<a name="q8"></a>
+### Q8. Walk me through your experience taking a strategy from research prototype to live trading.
+
+**Model Answer:**
+
+> "At Highbridge, I'll take the adverse selection model as the example. The research prototype was a Python notebook — I built a logistic regression that predicted, from LOB state features, whether an incoming market order was informed (likely to move the price) or uninformed. Features: bid-ask spread normalized by ATR, order flow imbalance (OFI) over 10-second windows, queue imbalance at best bid/ask, and short-term price momentum.
+>
+> **From prototype to production:**
+>
+> Step 1 — Research validation: CPCV across 6-month OOS windows, confirming the model had predictive IC > 0.05 consistently.
+>
+> Step 2 — Production spec: I wrote a technical spec documenting the exact feature construction methodology, the model's input/output interface, update frequency (real-time per order arrival), and latency budget (< 50 microseconds per inference).
+>
+> Step 3 — C++ implementation: The feature computation and model inference were ported to C++. I worked with the technology team on the implementation; I wrote the reference implementation and reviewed their production code for correctness.
+>
+> Step 4 — Shadow mode: We ran the model in parallel with the existing algo for 4 weeks, logging every prediction without acting on it. We validated that live predictions matched the backtest's distributional assumptions.
+>
+> Step 5 — Gradual live rollout: Started at 10% of flow, expanded to 100% over 8 weeks as live performance confirmed the OOS estimate.
+>
+> Step 6 — Feedback loop: Monthly TCA review comparing IS vs. VWAP and Arrival Price pre/post model deployment. The adverse selection model reduced estimated IS by approximately 3-4 bps on average in the first 6 months."
+
+---
+
+**Follow-up 1:** *"What can go wrong between shadow mode and full live deployment?"*
+
+**Answer:** "Several things. First, **market impact feedback** — in shadow mode, the model doesn't change behavior, so it doesn't affect the market. When it goes live, if it consistently avoids trading during high adverse-selection windows, those windows may shift — the signal can be partially self-defeating at scale. Second, **feature distribution shift** — if the production data pipeline generates features slightly differently from the research pipeline (different normalization, different data source for ATR), predictions are corrupted. This is why I insist on a 'feature fingerprint' check: verify the mean, standard deviation, and correlation matrix of live features against the training distribution daily. Third, **regime change** — shadow mode may have been in a regime that happens to match training. Explicit stress testing against the worst OOS sub-period is essential before full deployment."
+
+---
+
+**Follow-up 2:** *"How do you handle the situation where live performance is below the OOS estimate from day one?"*
+
+**Answer:** "Diagnose before reacting. First: is the underperformance within the confidence interval of the OOS estimate? A signal with OOS Sharpe 0.8 and 80% CI [0.4, 1.2] will look bad 10% of the time in any 6-month period. If it's within CI, do nothing and continue monitoring. Second: decompose the PnL by market regime, asset class, and time of day. Concentrated underperformance (e.g., only in thin markets) suggests a structural issue to investigate. Third: compare feature distributions live vs. OOS. If features are well-behaved but predictions are wrong, the model's causal assumptions may have broken down — consider re-training or parameter updating. Fourth: set a hard stop: if cumulative live PnL falls below -2 OOS standard deviations, suspend the signal and re-validate from scratch."
+
+---
+
+## SECTION II — SIGNAL DEVELOPMENT
+
+---
+
+<a name="q9"></a>
+### Q9. How do you design, validate, and deploy a trend-following signal for global macro futures?
+
+**Mathematical foundation:**
+
+The standard EWMA trend signal on asset $i$ at time $t$:
+
+$$\text{Signal}_{i,t} = \frac{\text{EWMA}(\Delta P, \lambda_{\text{fast}}) - \text{EWMA}(\Delta P, \lambda_{\text{slow}})}{\sigma_{i,t}}$$
+
+where $\sigma_{i,t}$ is the rolling realized volatility used for volatility scaling.
+
+**Full design framework:**
+
+1. **Lookback selection:** Test across the full spectrum of lookbacks (5-day to 252-day EWMA pairs). The signal should exhibit a 'plateau' of positive Sharpe across a range — not a sharp peak at one specific parameter.
+
+2. **Volatility scaling:** Scale positions by $\frac{\text{target vol}}{\sigma_{i,t}}$ so that each instrument contributes equally to portfolio volatility regardless of its realized vol level.
+
+3. **Cross-sectional aggregation:** Normalize signals within asset class before combining across equities, rates, FX, and commodities.
+
+4. **Validation protocol:**  
+   - Walk-forward: expand window, refit parameters annually  
+   - CPCV: test $k$-fold path combinations with purging and embargo  
+   - Minimum 20 independent cycles of the slowest lookback in OOS data
+
+5. **Live monitoring:** Track signal autocorrelation, IC decay, and cross-signal correlation weekly.
+
+---
+
+**Python 3.13 Implementation (Google Style Guide):**
+
+```python
+"""EWMA trend signal for global macro futures.
+
+Follows Google Python Style Guide.
+"""
+
+from __future__ import annotations
+
+import numpy as np
+import pandas as pd
+from dataclasses import dataclass, field
+from typing import Optional
+
+
+@dataclass
+class EWMATrendSignal:
+    """Volatility-scaled EWMA trend signal.
+
+    Attributes:
+        fast_span: Fast EWMA span in days.
+        slow_span: Slow EWMA span in days.
+        vol_lookback: Lookback window for realized volatility.
+        target_vol: Annualized target volatility for position scaling.
+    """
+
+    fast_span: int = 32
+    slow_span: int = 128
+    vol_lookback: int = 60
+    target_vol: float = 0.15  # 15% annualized
+
+    def compute(self, prices: pd.Series) -> pd.Series:
+        """Compute the volatility-scaled trend signal.
+
+        Args:
+            prices: Daily closing price series, DatetimeIndex.
+
+        Returns:
+            Signal series in units of (fraction of target vol allocation).
+
+        Time Complexity: O(N) for EWMA and rolling std.
+        Space Complexity: O(N) for output series.
+        """
+        returns = prices.pct_change().dropna()
+        fast_ewma = returns.ewm(span=self.fast_span, min_periods=self.fast_span).mean()
+        slow_ewma = returns.ewm(span=self.slow_span, min_periods=self.slow_span).mean()
+        raw_signal = fast_ewma - slow_ewma
+        # Annualized realized vol
+        realized_vol = returns.rolling(self.vol_lookback).std() * np.sqrt(252)
+        # Volatility-scaled signal
+        signal = raw_signal / realized_vol.replace(0, np.nan)
+        return signal.clip(-3, 3)  # Cap at 3 sigma
+
+    def information_coefficient(
+        self,
+        prices: pd.Series,
+        forward_window: int = 20,
+    ) -> pd.Series:
+        """Compute rolling IC between signal and forward returns.
+
+        Args:
+            prices: Daily price series.
+            forward_window: Number of days for forward return computation.
+
+        Returns:
+            Rolling 252-day Spearman IC series.
+        """
+        signal = self.compute(prices)
+        fwd_returns = prices.pct_change(forward_window).shift(-forward_window)
+        ic = signal.rolling(252).corr(fwd_returns, method='spearman')
+        return ic
+```
+
+**Time complexity:** O(N) — single pass for EWMA (exponential decay is recursive), O(N) for rolling std. Total O(N).  
+**Space complexity:** O(N) for the output series.
+
+---
+
+**C++26 Implementation (Google C++ Style Guide):**
+
+```cpp
+// ewma_trend_signal.h
+// EWMA trend signal implementation following Google C++ Style Guide.
+// Requires C++26; compile with: g++ -std=c++26 -O3 -march=native
+
+#pragma once
+
+#include <algorithm>
+#include <cmath>
+#include <span>
+#include <vector>
+
+namespace gcm::signals {
+
+/// Parameters for the EWMA trend signal.
+struct EWMAConfig {
+  int fast_span = 32;
+  int slow_span = 128;
+  int vol_lookback = 60;
+  double target_vol = 0.15;
+  double signal_cap = 3.0;
+};
+
+/// Volatility-scaled EWMA trend signal engine.
+/// All computation in a single O(N) pass using recursive EWMA.
+class EWMATrendSignal {
+ public:
+  explicit EWMATrendSignal(EWMAConfig config) noexcept : config_(config) {}
+
+  /// Compute signal from a contiguous price span.
+  /// @param prices  Daily closing prices (oldest first).
+  /// @returns       Clipped vol-scaled signal, same length as prices.
+  /// Time:  O(N)
+  /// Space: O(N) output vector
+  [[nodiscard]] std::vector<double> Compute(
+      std::span<const double> prices) const noexcept {
+    const auto n = static_cast<int>(prices.size());
+    std::vector<double> signal(n, 0.0);
+    if (n < config_.slow_span + config_.vol_lookback) return signal;
+
+    // Decay factors
+    const double alpha_fast = 2.0 / (config_.fast_span + 1);
+    const double alpha_slow = 2.0 / (config_.slow_span + 1);
+
+    // Pre-compute returns
+    std::vector<double> rets(n, 0.0);
+    for (int i = 1; i < n; ++i) {
+      rets[i] = (prices[i] - prices[i - 1]) / prices[i - 1];
+    }
+
+    double fast = rets[1], slow = rets[1];
+    double sum_sq = 0.0;
+    int vol_count = 0;
+
+    for (int i = 1; i < n; ++i) {
+      const double r = rets[i];
+      // Recursive EWMA
+      fast = alpha_fast * r + (1.0 - alpha_fast) * fast;
+      slow = alpha_slow * r + (1.0 - alpha_slow) * slow;
+      // Rolling variance (simple, Welford-style could replace)
+      if (i >= n - config_.vol_lookback) {
+        sum_sq += r * r;
+        ++vol_count;
+      }
+      if (i >= config_.slow_span && vol_count > 0) {
+        const double realized_vol =
+            std::sqrt(sum_sq / vol_count * 252.0);
+        if (realized_vol > 1e-8) {
+          signal[i] = std::clamp(
+              (fast - slow) / realized_vol,
+              -config_.signal_cap,
+              config_.signal_cap);
+        }
+      }
+    }
+    return signal;
+  }
+
+ private:
+  EWMAConfig config_;
+};
+
+}  // namespace gcm::signals
+```
+
+**Time complexity:** O(N) — single pass through prices with recursive EWMA updates.  
+**Space complexity:** O(N) for the returns buffer and output signal vector.
+
+---
+
+**Follow-up 1:** *"How do you set the fast/slow lookback parameters — and what's wrong with optimizing them on historical data?"*
+
+**Answer:** "Optimizing on historical data finds the parameters that worked best in-sample — which is not the same as the parameters that will work best going forward. Instead, I use three principles: (1) Anchor to economic theory — the dominant trend cycles in macro markets (business cycle, commodity super-cycle) suggest that medium-to-long lookbacks (3-12 months) should be the most persistent. (2) Use ensemble averaging — rather than picking one parameter, I run a 10-way ensemble across log-spaced lookbacks from 16 to 256 days and equal-weight them. The ensemble is more robust than any single lookback. (3) Test parameter sensitivity — plot Sharpe as a function of lookback. A good signal has a wide plateau; a fragile signal has a sharp peak. I only deploy signals in the plateau region."
+
+---
+
+**Follow-up 2:** *"What is the economic rationale for trend following and when does it break down?"*
+
+**Answer:** "The rationale has two non-exclusive mechanisms. First, **behavioral**: investors under-react to information initially (anchoring, limited attention) and over-react later (herding, extrapolation), creating momentum in prices. Second, **structural**: risk premia harvesting — investors with constraints (insurance companies needing to sell equities when vol spikes, mortgage servicers needing to sell duration when rates rise) create persistent flows that generate predictable directional moves. Trend breaks down when: (1) **regime choppiness** — in sideways, mean-reverting markets, trend signals generate consistent false signals. 2025's early equity markets were an example; (2) **crowding exit** — when too many managers are in the same trend trade, the exit can be faster than entry, generating sharp reversals; (3) **structural break** — the 2022 rates trend broke the conventional 60/40 hedge that trend funds relied on (long equities, long bonds moved together for the first time in decades)."
+
+---
+
+<a name="q10"></a>
+### Q10. Explain carry as an alpha source — construction, risks, and how you diversify it.
+
+**Mathematical definition:**
+
+For FX carry:
+
+$$\text{Carry}_{i,t} = r_{i,t}^{\text{foreign}} - r_{t}^{\text{domestic}}$$
+
+where $r_{i,t}^{\text{foreign}}$ is the short-term interest rate in currency $i$. The excess return of a carry trade is:
+
+$$\text{ER}_{i,t+1} = \text{Carry}_{i,t} - \Delta S_{i,t+1}$$
+
+where $\Delta S_{i,t+1}$ is the change in spot exchange rate. Under uncovered interest rate parity, $\mathbb{E}[\Delta S] = \text{Carry}$, so $\mathbb{E}[\text{ER}] = 0$. The empirical finding is that high-carry currencies appreciate (or at minimum don't depreciate as much as UIP predicts), generating positive expected excess return.
+
+**Generalized carry across asset classes:**
+
+| Asset Class | Carry Definition |
+|-------------|-----------------|
+| FX | Foreign minus domestic short rate |
+| Rates/Bonds | Yield - funding cost (repo) |
+| Commodities | Convenience yield = spot - futures discounted |
+| Equities | Earnings yield - equity risk-free rate |
+
+**Key risks:**
+
+1. **Crash risk**: Carry trades are exposed to sudden risk-off episodes (2008, 2020) where high-carry currencies collapse simultaneously
+2. **Funding liquidity risk**: Carry requires leverage; in liquidity crises, funding dries up forcing unwind
+3. **Regime sensitivity**: Carry works in low-vol, risk-on regimes; fails in high-vol, risk-off
+
+**Diversification strategies:**
+
+- Cross-asset carry: combine FX, rates, commodity, equity carry (low pairwise correlation)
+- Regime conditioning: scale carry exposure down when equity vol (VIX) exceeds threshold or when HMM detects risk-off regime
+- Crash hedging: explicitly allocate a small tail-risk hedge (e.g., long VIX calls in risk-on regimes)
+
+---
+
+**Follow-up 1:** *"How do you handle the crash risk asymmetry in carry — and how does this show up in the Sharpe calculation?"*
+
+**Answer:** "Carry has negative skewness — many small positive returns punctuated by large drawdowns. A Sharpe ratio computed from the mean/vol of daily returns understates the true risk because it doesn't penalize negative skewness. I supplement Sharpe with: (1) Sortino ratio — penalizes downside vol only; (2) Calmar ratio — annualized return / max drawdown; (3) Conditional VaR (CVaR) at 5% — the expected loss in the worst 5% of outcomes. For carry strategies, I also model the return distribution explicitly as a mixture of a normal component and a jump component (compound Poisson). This gives more realistic risk estimates for tail events."
+
+---
+
+**Follow-up 2:** *"In 2022 and 2023, rate differentials widened dramatically. How did that affect carry strategies and what does it imply for construction?"*
+
+**Answer:** "The 2022-2023 rate divergence was one of the best carry environments in decades — the USD became the dominant high-carry currency as the Fed hiked aggressively while EM central banks lagged. However, this created a concentration problem: if all your carry signals are pointing to long USD, you're not running a diversified carry portfolio — you're running a correlated USD long book. The implication for construction: carry portfolios should be run cross-sectionally with a market-neutral tilt. I explicitly demean the carry signals within each asset class before combining them across asset classes, ensuring that common-factor carry (global rate level) is neutralized and only relative carry (the cross-sectional spread) contributes."
+
+---
+
+<a name="q11"></a>
+### Q11. How do you distinguish genuine mean reversion from noise?
+
+**Answer:**
+
+The Augmented Dickey-Fuller (ADF) test is the standard starting point for testing mean reversion:
+
+$$\Delta y_t = \alpha + \beta y_{t-1} + \sum_{j=1}^{p} \gamma_j \Delta y_{t-j} + \epsilon_t$$
+
+Reject the null of a unit root ($\beta = 0$) at p < 0.05.
+
+**But ADF alone is insufficient in practice:**
+
+1. **Half-life estimation**: For an Ornstein-Uhlenbeck process $dy_t = \theta(\mu - y_t)dt + \sigma dW_t$, the mean reversion speed $\theta$ determines the half-life: $t_{1/2} = \ln(2)/\theta$. Estimate $\theta$ via OLS on the discretized OU equation. Half-life must be consistent with your trading frequency — a 3-day half-life in daily data is tradeable; a 3-year half-life is not.
+
+2. **Hurst exponent**: $H < 0.5$ indicates mean-reverting process; $H = 0.5$ is random walk; $H > 0.5$ is trending. Estimate via variance ratio or R/S analysis.
+
+3. **Economic rationale**: Is there a fundamental anchor that enforces mean reversion? For commodity spreads, there's a physical arbitrage that enforces convergence. For pure statistical arbitrage (e.g., equity pair trading), the anchor can disappear.
+
+4. **Out-of-sample stability**: Mean reversion in-sample can be an artifact of a specific regime. Run rolling ADF tests and verify that the stationarity conclusion holds across sub-periods.
+
+**Noise vs. genuine mean reversion distinction:**
+
+- Noise: ADF significant in-sample, not out-of-sample; no economic anchor; signal profitable only at specific lookbacks
+- Genuine: ADF significant across multiple sub-periods; economic rationale exists; half-life stable over time; profit curve smooth across parameter range
+
+---
+
+**Follow-up 1:** *"How do you handle mean reversion in macro futures specifically — where the 'fundamental value' is often unobservable?"*
+
+**Answer:** "In macro futures, mean reversion is harder to anchor than in, say, commodity calendar spreads. I focus on a few specific types where the anchor is at least semi-observable. One: cross-asset relative value (e.g., the ratio of copper to gold prices as a macro indicator — this has a fundamental relationship to global growth expectations). Two: interest rate term structure mean reversion — the term structure has a long-run shape that is enforced by no-arbitrage constraints, so extreme inversions (like 2022-2023 US curve inversion) contain mean-reversion information. Three: FX purchasing power parity — PPP deviations mean-revert over 3-7 years. This is too slow for systematic trading directly, but I use it as a slow-moving 'value' component in a composite signal."
+
+---
+
+**Follow-up 2:** *"Describe the Ornstein-Uhlenbeck process and how you would estimate its parameters from real market data."*
+
+**Answer:** "The OU process in continuous time: $dy_t = \theta(\mu - y_t)dt + \sigma dW_t$, where $\mu$ is the long-run mean, $\theta$ is the mean-reversion speed, and $\sigma$ is the diffusion coefficient. To estimate from discrete data, discretize to: $y_t - y_{t-1} = a + b \cdot y_{t-1} + \epsilon_t$, where $\theta = -b \cdot \Delta t$ and $\mu = -a/b$. Estimate via OLS. Standard errors use Newey-West to correct for autocorrelation in residuals. The key diagnostic: verify that residuals are genuinely i.i.d. — ACF plots, Ljung-Box test. A common failure mode is that the residual process is itself autocorrelated, meaning the true data-generating process has a richer structure than simple OU, and your entry/exit rules based on OU parameters will be miscalibrated."
+
+---
+
+<a name="q12"></a>
+### Q12. How do you combine orthogonal signals into a composite forecast?
+
+**Framework: From individual signals to portfolio position**
+
+Step 1 — Normalize each signal to zero mean, unit standard deviation:
+
+$$\tilde{s}_{i,k,t} = \frac{s_{i,k,t} - \mu_{k}}{\sigma_{k}}$$
+
+Step 2 — Estimate pairwise signal correlations $\rho_{jk}$ using a rolling 252-day window.
+
+Step 3 — Optimal combination weights via mean-variance:
+
+$$\mathbf{w}^* = \frac{\Sigma^{-1} \boldsymbol{\mu}}{\mathbf{1}^\top \Sigma^{-1} \boldsymbol{\mu}}$$
+
+where $\boldsymbol{\mu}$ is the vector of expected signal ICs and $\Sigma$ is the signal correlation matrix.
+
+Step 4 — Apply shrinkage to $\Sigma$ (Ledoit-Wolf) to handle estimation error.
+
+Step 5 — Composite signal: $\hat{r}_{i,t} = \mathbf{w}^{*\top} \tilde{\mathbf{s}}_{i,t}$
+
+**Practical considerations:**
+
+- Equal weighting is a strong baseline — often competitive with optimized weights because of estimation error in $\Sigma$ and $\boldsymbol{\mu}$
+- Use the ensemble if signals have similar ICs and low pairwise correlations
+- Use optimized weights only when IC differences are significant and correlation structure is stable
+
+---
+
+**Follow-up 1:** *"How do you handle the fact that signal ICs are non-stationary?"*
+
+**Answer:** "I use rolling IC estimation with exponential decay weighting — recent IC observations get more weight. For the combination, I use a combination of long-run IC (prior) and recent IC (update) via a Bayesian shrinkage approach: $\hat{\text{IC}}_k = (1-\alpha)\bar{\text{IC}}_k + \alpha \hat{\text{IC}}_{k,\text{recent}}$. The $\alpha$ parameter controls how much weight to give recent performance vs. the long-run prior. I calibrate $\alpha$ by minimizing OOS prediction error. In practice, I find $\alpha \approx 0.2-0.3$ — meaning recent IC provides useful information but not dominant information."
+
+---
+
+**Follow-up 2:** *"Does the equal-weighting approach perform better than optimized weighting in your experience?"*
+
+**Answer:** "Yes, in most cases with fewer than 10 signals and limited history. The intuition is that estimation error in both expected ICs and the correlation matrix dominates any theoretical gain from optimization. The academic literature confirms this: DeMiguel et al. (2009) showed that equal-weighted portfolios outperform mean-variance optimized portfolios on OOS Sharpe in most standard datasets. However, optimized weighting does add value in two specific cases: (1) when one signal is a known outlier in quality — very high IC — and you want to overweight it; (2) when signals have highly heterogeneous correlation structures and equal weighting would over-concentrate in correlated signal clusters. My practice: start with equal weighting, then add optimization only if the OOS improvement is significant and stable."
+
+---
+
+<a name="q13"></a>
+### Q13. How do you measure and manage signal decay?
+
+**Signal half-life and IC decay:**
+
+The IC (information coefficient) between a signal and forward returns as a function of forecast horizon $h$:
+
+$$\text{IC}(h) = \text{Corr}(s_t, r_{t+1:t+h})$$
+
+An exponentially decaying IC: $\text{IC}(h) = \text{IC}(0) \cdot e^{-\lambda h}$, giving half-life $t_{1/2} = \ln(2)/\lambda$.
+
+**Measurement framework:**
+
+1. **IC decay curve**: Plot $\text{IC}(h)$ for $h = 1, 5, 10, 20, 60$ days. The shape determines optimal holding period.
+
+2. **Rolling IC**: Compute 252-day rolling IC. Systematic decline indicates structural decay (market adapts to signal).
+
+3. **Autocorrelation of signal**: Decay in signal autocorrelation over time indicates regime shift.
+
+4. **PnL attribution**: Track signal's contribution to portfolio PnL monthly. A declining contribution over 12+ months is a red flag.
+
+**Management strategies:**
+
+- Shorten holding period as IC decay accelerates
+- Add new orthogonal signals to maintain aggregate portfolio IC
+- Re-estimate features and retrain ML-based signals on rolling windows
+- Monitor crowding metrics — when many competitors implement similar signals, decay accelerates
+
+---
+
+**Follow-up 1:** *"How does NLP signal decay compare to price-based signal decay in macro markets?"*
+
+**Answer:** "NLP signals tend to decay faster but also refresh faster. The mechanism: when the market learns to anticipate the NLP signal (e.g., everyone now has a Fed statement sentiment model), the price impact of the sentiment score compresses toward zero. However, NLP signals can be regenerated by extracting sentiment from new document types (earnings call transcripts, supply chain reports, port data commentary) — the 'alpha surface' of unstructured text is much broader than the alpha surface of price data. My view: NLP signals require more frequent feature engineering refresh than price signals, but the frontier of extractable alpha is larger."
+
+---
+
+**Follow-up 2:** *"How do you decide to retire a signal versus re-calibrate it?"*
+
+**Answer:** "A signal should be re-calibrated if: (1) the economic mechanism still holds but parameters have shifted (e.g., the trend lookback that worked best has shortened due to faster information diffusion); (2) the IC has declined but is still positive and the decline can be explained by regime. A signal should be retired if: (1) the IC is statistically indistinguishable from zero over a sustained OOS period (> 12 months, not just one bad quarter); (2) the economic mechanism has structurally changed (e.g., a signal based on capital controls that have since been removed); (3) the signal is now fully crowded with no path to differentiation. Before retiring, I always run a post-mortem: understand exactly why the signal stopped working, because that understanding is often the seed of the next good idea."
+
+---
+
+<a name="q14"></a>
+### Q14. How do you identify market regimes and adapt signals accordingly?
+
+**Regime classification approaches:**
+
+**1. Rule-based (transparent, robust):**
+- VIX level: Low (<15), Normal (15-25), High (>25)
+- Term structure slope: Steep, Flat, Inverted (for rates regimes)
+- Trend vs. choppiness: Hurst exponent rolling window
+
+**2. Statistical: Hidden Markov Model**
+
+For $K$ regimes, the HMM has:
+- Emission distribution: $p(\mathbf{x}_t | z_t = k) = \mathcal{N}(\boldsymbol{\mu}_k, \Sigma_k)$
+- Transition matrix: $A_{kj} = P(z_{t+1} = j | z_t = k)$
+
+where $\mathbf{x}_t$ are the observable features (returns, vol, spreads) and $z_t$ is the hidden regime.
+
+Estimated via Baum-Welch (EM algorithm). Viterbi algorithm for decoding most likely state sequence.
+
+**3. ML-based: Gradient Boosting Classifier**
+- Features: vol level, vol-of-vol, rate level, curve slope, cross-asset correlations, OFI
+- Target: retrospectively labeled regime (risk-on/off via composite indicator)
+- Validated with time-series CV to avoid look-ahead
+
+**Signal adaptation:**
+
+| Regime | Trend Signal Weight | Carry Signal Weight | Reversion Weight |
+|--------|-------------------|--------------------|----|
+| Trending, Low Vol | 1.5× | 1.0× | 0.5× |
+| Choppy, Low Vol | 0.5× | 1.2× | 1.5× |
+| Crisis, High Vol | 0.3× | 0.2× | 0.3× |
+| Vol Spike Recovery | 0.8× | 0.5× | 1.2× |
+
+---
+
+**Follow-up 1:** *"What is the main failure mode of HMM-based regime detection?"*
+
+**Answer:** "Three main failure modes. First, **label uncertainty at transitions** — the Viterbi path assigns each time step a hard label, but in reality, regime transitions are gradual and the model's confidence is lowest at exactly the most important moment. Using posterior probabilities rather than hard labels and applying a soft, continuous weighting solves this partially. Second, **overfitting to a small number of historical crisis episodes** — if you train an HMM on 20 years of daily data, you have perhaps 5-6 genuine risk-off episodes. The model is calibrated on very few crisis observations. I address this with regime-conditional bootstrapping to augment crisis periods. Third, **non-stationarity of regime structure** — the features that distinguished regimes in 2005-2015 may not be the same as in 2020-2025. I use rolling re-estimation with a 5-year window and validate that regime labels remain economically interpretable over time."
+
+---
+
+**Follow-up 2:** *"How do you avoid look-ahead bias in a regime classification model that uses forward-looking labels?"*
+
+**Answer:** "This is a common pitfall. If you label regimes using outcomes (e.g., 'this was a crisis because the drawdown was 20%'), and then use features available at time $t$ to predict those labels, you're training on in-sample data but your labels are implicitly forward-looking. The correct approach: (1) Use contemporaneous features only — features available at the time of the classification decision. (2) Label regimes using only information available at time $t$ (e.g., current VIX level, current term structure shape) — not ex-post drawdown. (3) If using ex-post labels (e.g., NBER recession periods), apply a strict embargo: no feature from within 6 months of the label boundary can appear in either the training or test set for that boundary."
+
+---
+
+<a name="q15"></a>
+### Q15. How do you ensure your new signal adds genuine diversification to the existing library?
+
+**Marginal diversification test:**
+
+Given existing portfolio with Sharpe $S_0$ and a new candidate signal $k$:
+
+$$S_{\text{combined}} = \frac{\mu_0 + w_k \mu_k}{\sqrt{\sigma_0^2 + 2 w_k \rho_{0k} \sigma_0 \sigma_k + w_k^2 \sigma_k^2}}$$
+
+The new signal adds value if $S_{\text{combined}} > S_0$ for some $w_k > 0$, which requires:
+
+$$\frac{\mu_k}{\sigma_k} > \rho_{0k} \cdot S_0$$
+
+In words: the new signal's Sharpe must exceed its correlation with the existing portfolio times the existing portfolio's Sharpe.
+
+**Practical protocol:**
+
+1. **Correlation matrix audit**: Add the candidate signal's daily returns to the existing signal return matrix. Compute pairwise correlations. Flag if $|\rho| > 0.6$ with any existing signal.
+
+2. **Factor decomposition**: Regress the new signal returns onto a set of common factors (momentum factor, carry factor, value factor, vol factor). The $R^2$ should be low — ideally < 30%.
+
+3. **Incremental Sharpe test**: Run portfolio optimization with and without the new signal. If the combined portfolio's Sharpe improvement is < 0.05 (net of transaction cost), the diversification benefit is too small to justify the operational complexity.
+
+4. **OOS diversification**: Verify that the low correlation holds out-of-sample, not just in-sample.
+
+---
+
+**Follow-up 1:** *"What is the minimum standalone Sharpe you'd require for a new signal to be added to a 30-signal library?"*
+
+**Answer:** "Depends on the signal's correlation with the existing library. A signal with zero correlation to the portfolio can add value even with Sharpe 0.3 — it's pure diversification benefit. A signal with 0.8 correlation needs Sharpe above $0.8 \times S_{\text{portfolio}}$ to justify inclusion. In practice, I require a minimum standalone OOS Sharpe of 0.5 for an uncorrelated signal and 0.8 for a moderately correlated one. Below those thresholds, the estimation uncertainty in the OOS Sharpe estimate makes it indistinguishable from zero."
+
+---
+
+**Follow-up 2:** *"How do you handle the curse of dimensionality as your signal library grows to 30+ signals?"*
+
+**Answer:** "First: apply regularization to the covariance matrix. I use Ledoit-Wolf shrinkage which reduces the effective dimension of the covariance problem. Second: impose a hierarchical structure — cluster signals by strategy type (trend cluster, carry cluster, value cluster, macro cluster) and enforce within-cluster diversification before solving the full optimization. This reduces the effective degrees of freedom dramatically. Third: maximum weight constraints — no single signal can exceed 15% of portfolio risk budget. Fourth: periodically prune the library by retiring signals whose marginal contribution has fallen below the minimum threshold, keeping the library lean."
+
+---
+
+## SECTION III — MACHINE LEARNING & NLP
+
+---
+
+<a name="q16"></a>
+### Q16. How do you extract trading signals from financial text data using NLP?
+
+**Pipeline architecture:**
+
+```
+Raw Text                   Feature Extraction          Signal Construction
+─────────────────────      ─────────────────────────   ───────────────────
+Central bank statements ──▶ Tokenization / cleaning ──▶ Document embedding
+Earnings transcripts        FinBERT / RoBERTa           Sentiment score
+News wire articles          Named entity recognition    Tone delta (t vs t-1)
+Supply chain reports        Topic modeling (LDA/NMF)    Event extraction
+Analyst reports             Surprise index              Cross-doc aggregation
+```
+
+**Step-by-step methodology:**
+
+**Step 1 — Document preprocessing:**
+- Strip HTML, normalize whitespace, tokenize
+- Remove boilerplate (disclaimer, legal sections) via regex + document structure parsing
+- For central bank documents: extract specific sections (economic assessment, forward guidance, policy decision)
+
+**Step 2 — Semantic embedding:**
+- Use FinBERT (Huang et al., 2023) fine-tuned on financial texts, or domain-adapted RoBERTa
+- Generate [CLS] token embedding as document representation
+- For long documents: split into paragraphs, embed each, then pool
+
+**Step 3 — Sentiment/Tone scoring:**
+- For classification: fine-tune on labeled financial sentiment dataset
+- For macro: define axes (hawkish/dovish for central banks; bullish/bearish for equity)
+- Cross-document delta: $\Delta_t = \cos(\mathbf{e}_{t}, \mathbf{e}_{t-1})$ — tracks how much the language changed
+
+**Step 4 — Signal construction:**
+- Normalize scores by rolling statistics
+- Map to instrument-level signals (e.g., Fed hawkishness → short Eurodollar futures, long USD)
+- Apply decay function: $s_t = \alpha \cdot \text{NLP score}_t + (1-\alpha) \cdot s_{t-1}$
+
+**Step 5 — Validation:**
+- IC test: Spearman correlation between score and next-day return
+- Event study: cumulative abnormal return around events sorted by score decile
+- CPCV across event dates (embargo window = 5 days around each event)
+
+---
+
+**Python 3.13 NLP pipeline (Google Style Guide):**
+
+```python
+"""Central bank NLP signal pipeline.
+
+Extracts hawkishness score from central bank statements using FinBERT.
+Follows Google Python Style Guide.
+"""
+
+from __future__ import annotations
+
+import numpy as np
+import pandas as pd
+from dataclasses import dataclass
+from typing import Optional
+import torch
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+
+@dataclass
+class CentralBankNLPSignal:
+    """Hawkishness signal from central bank text.
+
+    Attributes:
+        model_name: HuggingFace model name.
+        hawkish_class_idx: Index of hawkish class in model output.
+        dovish_class_idx: Index of dovish class in model output.
+        decay_alpha: EWMA decay for signal smoothing.
+    """
+
+    model_name: str = "ProsusAI/finbert"
+    hawkish_class_idx: int = 0  # 'positive' in FinBERT maps to hawkish after fine-tuning
+    dovish_class_idx: int = 2   # 'negative' maps to dovish
+    decay_alpha: float = 0.3
+
+    def __post_init__(self) -> None:
+        self._tokenizer = AutoTokenizer.from_pretrained(self.model_name)
+        self._model = AutoModelForSequenceClassification.from_pretrained(
+            self.model_name
+        )
+        self._model.eval()
+
+    def score_document(self, text: str) -> float:
+        """Score a single document for hawkishness.
+
+        Args:
+            text: Raw text of the central bank statement.
+
+        Returns:
+            Hawkishness score in [-1, 1].
+            Positive = hawkish, Negative = dovish.
+
+        Time Complexity: O(L) where L = document token length (capped at 512).
+        Space Complexity: O(L) for tokenization.
+        """
+        # Truncate to model max length
+        inputs = self._tokenizer(
+            text,
+            return_tensors="pt",
+            truncation=True,
+            max_length=512,
+            padding=True,
+        )
+        with torch.no_grad():
+            logits = self._model(**inputs).logits
+        probs = torch.softmax(logits, dim=-1).numpy()[0]
+        # Hawkishness = P(hawkish) - P(dovish)
+        return float(probs[self.hawkish_class_idx] - probs[self.dovish_class_idx])
+
+    def build_signal_series(
+        self,
+        documents: pd.Series,  # DatetimeIndex → text
+    ) -> pd.Series:
+        """Build smoothed hawkishness time series.
+
+        Args:
+            documents: Series mapping event dates to document text.
+
+        Returns:
+            Smoothed hawkishness signal series.
+
+        Time Complexity: O(N * L) where N = documents, L = avg token length.
+        Space Complexity: O(N).
+        """
+        raw_scores = documents.map(self.score_document)
+        # EWMA smoothing
+        smoothed = raw_scores.ewm(alpha=self.decay_alpha, adjust=False).mean()
+        # Normalize to z-score over trailing 52-week window
+        rolling_mean = smoothed.rolling(52, min_periods=10).mean()
+        rolling_std = smoothed.rolling(52, min_periods=10).std()
+        signal = (smoothed - rolling_mean) / rolling_std.replace(0, np.nan)
+        return signal.clip(-3, 3)
+```
+
+**Time complexity:** O(N × L) where N = number of documents, L = average document length (tokens, capped at 512). BERT inference is O(L²) in attention but since we cap at 512, it is O(1) per document. Full pipeline is O(N).  
+**Space complexity:** O(N) for the signal series; O(L) per document during inference.
+
+---
+
+**Follow-up 1:** *"How do you validate that your hawkishness signal is not simply recapturing information already in the yield curve?"*
+
+**Answer:** "I run an orthogonalization regression: $\text{NLP Signal}_t = \alpha + \beta \cdot \Delta \text{2Y yield}_t + \gamma \cdot \text{Curve slope}_t + \epsilon_t$. If $R^2$ is high (> 60%), the NLP signal is mostly redundant to the yield curve. I then take the residual $\hat{\epsilon}_t$ as the 'pure NLP signal' — the component orthogonal to existing market-implied information. This residual is the genuine information value of the text. Typically, I find $R^2 \approx 30-40\%$, meaning about 60% of the NLP signal is genuinely orthogonal — which is a meaningful incremental source."
+
+---
+
+**Follow-up 2:** *"Given that Antoine focuses on NLP for financial news, what specific research questions would you want to explore with him in the first 90 days?"*
+
+**Answer:** "Three specific questions: (1) **Cross-document information cascade**: When a Reuters news article references a Fed statement, how do we avoid double-counting? I'd want to build a document dependency graph that tracks information propagation through the news cycle and properly discount redundant signals. (2) **Named entity resolution for instrument mapping**: Mapping free-form news text to specific tradeable instruments is a hard problem — 'China's central bank' maps to CNH, CGB, and commodity futures in complex ways. I'd want to explore a structured entity-to-instrument mapping layer with confidence scoring. (3) **Real-time vs. end-of-day processing**: For macro news, the first 15 minutes after a release contain the most signal. I'd want to understand GCM's latency requirements and whether there's appetite for a near-real-time NLP signal engine."
+
+---
+
+<a name="q17"></a>
+### Q17. How do you use large language models in systematic macro research?
+
+**Four primary use cases in systematic macro:**
+
+**1. Feature extraction from unstructured documents** (most mature)
+- Fed minutes, ECB communications, G20 communiqués
+- Generate structured outputs: hawkishness score, forward guidance uncertainty, policy surprise index
+- LLMs outperform bag-of-words and even smaller fine-tuned models on nuanced policy language
+
+**2. Event extraction and classification**
+- Identify macro-relevant events from news wire: "tariff announcement," "central bank unscheduled meeting," "sovereign downgrade"
+- LLM classifies event type, affected instruments, and magnitude of surprise
+- Feeds event-driven alpha model
+
+**3. Scenario generation and hypothesis ideation** (LLM as research assistant)
+- Prompt: "Given a 50bps surprise hike by the Fed alongside weak payrolls, what are the historical analogues and likely market trajectories?"
+- LLM synthesizes relevant historical episodes; researcher validates quantitatively
+- This use case does not produce alpha directly — it accelerates research ideation
+
+**4. Code generation and backtesting acceleration**
+- LLMs can generate Python boilerplate for data wrangling, reducing time to hypothesis test
+- Must be validated against known benchmarks; never used in production without review
+
+**Key limitations:**
+
+- Hallucination risk: LLMs can generate plausible-sounding but factually incorrect historical analogues
+- Latency: Large transformer inference is 100ms-1s — too slow for real-time signals without optimization (quantization, speculative decoding)
+- Non-stationarity: LLMs trained on data through a cutoff date will not have seen recent events
+- Proprietary data: Fine-tuning on GCM's internal data requires careful data governance
+
+---
+
+**Follow-up 1:** *"How would you fine-tune a general LLM like LLaMA on financial/macro text without incurring excessive hallucination risk?"*
+
+**Answer:** "Several techniques in combination. First: **RLHF with domain expert feedback** — have macro researchers rate a sample of model outputs on a 3-point scale (accurate / plausible but uncertain / factually wrong), then use this as the reward signal. Second: **RAG (Retrieval-Augmented Generation)** — rather than encoding all macro knowledge in model weights, retrieve relevant documents from a curated database (Fed archives, FRED data, academic papers) at inference time and condition the LLM response on retrieved facts. This dramatically reduces hallucination for factual questions. Third: **Calibration validation** — test the model's confidence scores on a held-out set of historical events where outcomes are known. If the model claims 90% confidence but is correct only 60% of the time, it's overconfident and needs calibration."
+
+---
+
+**Follow-up 2:** *"What is the risk of using LLMs to generate trading signals in the current regulatory environment?"*
+
+**Answer:** "Three dimensions of risk. First: **model explainability** — regulators increasingly require investment managers to explain how their models generate signals. An LLM that generates a signal through opaque attention mechanisms creates explainability challenges, especially under MiFID II and SEC rule proposals on AI in investment advice. Second: **bias in training data** — LLMs trained on internet-scale text may contain biases that translate into systematic tilts in signal construction (e.g., over-weighting English-language news sources, under-weighting EM market commentary). Third: **adversarial robustness** — as more firms use LLMs for macro signal extraction, bad actors could theoretically craft news articles designed to manipulate LLM-based signals. I'd structure any LLM-based signal with anomaly detection on the inputs and confidence thresholds on the outputs."
+
+---
+
+<a name="q18"></a>
+### Q18. What is your framework for preventing overfitting in ML-driven signals?
+
+**The five-layer anti-overfitting framework:**
+
+```
+Layer 1: Prior-driven hypothesis
+    ↓ Only test ideas with economic rationale
+Layer 2: Feature selection discipline
+    ↓ Occam's razor; maximum K features per model
+Layer 3: Cross-validation design
+    ↓ CPCV / walk-forward; never random k-fold on time series
+Layer 4: Multiple testing correction
+    ↓ Haircut Sharpe for number of strategies tested
+Layer 5: OOS hold-out + live monitoring
+    ↓ Hard OOS period never touched during research
+```
+
+**Quantitative anti-overfitting tools:**
+
+**Deflated Sharpe Ratio (Harvey & Liu, 2015):**
+
+$$\text{DSR} = \text{SR} \cdot \left(1 - \gamma \cdot \Phi\left(-\frac{\text{SR}}{\sqrt{V[\text{SR}]}}\right)\right)$$
+
+where $\gamma$ is the effective number of independent strategies tested. Penalizes the Sharpe for the number of strategies tested.
+
+**Minimum Backtest Length (Bailey et al., 2014):**
+
+$$\text{MinBTL} = \frac{(0.44 + 0.99 \cdot \sigma[\text{SR}^*]) \cdot N_{\text{trials}}}{T}$$
+
+where $N_{\text{trials}}$ is the number of strategies tested and $T$ is the observation length.
+
+**Practical rules I follow:**
+- Maximum 3 free parameters per signal
+- Require 200+ independent observations OOS
+- Hard OOS hold-out: last 2 years of data untouched during research
+- Log every strategy tested — calculate the effective number of trials for DSR
+- Parameter sensitivity test: Sharpe must be > 0.4 across all parameter perturbations of ±20%
+
+---
+
+**Follow-up 1:** *"You mentioned CPCV — explain exactly how it improves on standard k-fold cross-validation for financial time series."*
+
+**Answer:** "Standard k-fold randomly assigns observations to folds. For financial time series this creates two problems: (1) **Data leakage** — observations near a fold boundary share information because of autocorrelation in returns and features. A model trained on t+1 through t+252 should not be tested on t-10 through t+10 because those overlap. (2) **No purging** — even with contiguous folds, training data temporally adjacent to the test period is contaminated. CPCV addresses both: (1) **Purging**: remove training observations within an embargo window (e.g., 20 trading days) of any test observation. (2) **Combinatorial paths**: instead of testing each fold once, generate all $\binom{N}{k}$ combinations of train/test splits and average the OOS performance across all paths. This gives a distribution of OOS Sharpes rather than a single estimate, properly accounting for path-dependence. I require that the 10th percentile of the CPCV Sharpe distribution exceeds my deployment threshold — not just the mean."
+
+---
+
+**Follow-up 2:** *"What is the practical impact of the multiple comparisons problem on a 30+ signal library?"*
+
+**Answer:** "Devastating if ignored. If you test 30 independent strategies and declare a signal 'significant' at $p < 0.05$, the expected number of false discoveries is $30 \times 0.05 = 1.5$. Bonferroni correction would require $p < 0.05/30 \approx 0.0017$ for each individual test. In practice I use the Benjamini-Hochberg FDR (False Discovery Rate) procedure rather than Bonferroni, because Bonferroni is too conservative when tests are correlated. BH controls the expected fraction of false discoveries at 5% across all tested signals. Additionally, I apply the Deflated Sharpe Ratio which provides a single number that already incorporates the trial count penalty. The implication for our 30-signal library: a strategy needs a raw OOS Sharpe of approximately 1.0+ to survive DSR adjustment if we tested 100+ strategies to find it."
+
+---
+
+<a name="q19"></a>
+### Q19. When do you use gradient boosting vs. neural networks for return prediction?
+
+**Decision framework:**
+
+| Dimension | Gradient Boosting (XGBoost/LightGBM) | Neural Networks (PyTorch) |
+|-----------|--------------------------------------|--------------------------|
+| Dataset size | Small-medium (< 100K samples) | Large (> 100K samples) |
+| Feature type | Tabular, structured | Unstructured (text, images) |
+| Interpretability | High (SHAP values, feature importance) | Low (black box, attention maps) |
+| Training time | Fast (minutes) | Slow (hours-days) |
+| Hyperparameter sensitivity | Moderate | High |
+| Non-linear interactions | Captures automatically | Strong at complex interactions |
+| Temporal dependencies | Requires explicit lagged features | LSTM/Transformer captures natively |
+| Noise robustness | High (ensemble of weak learners) | Lower (can overfit to noise) |
+
+**When I use gradient boosting in macro:**
+- Combining 30+ tabular features (price-based, macro indicators, NLP scores) into a composite forecast
+- When training set spans < 10 years of daily data (< 2,500 observations — too few for deep networks)
+- When I need feature importance for economic interpretation
+
+**When I use neural networks:**
+- NLP signal extraction from raw text (transformers/BERT)
+- Sequence modeling where temporal structure matters (LSTM for time-series regime detection)
+- Multi-asset joint modeling with complex cross-asset dependencies (graph neural networks)
+
+**Practical hybrid:** Use XGBoost for the tabular signal combination layer; BERT/FinBERT for feature extraction from text; feed BERT embeddings as features into the XGBoost model. Best of both worlds.
+
+---
+
+**Follow-up 1:** *"How do you prevent gradient boosting from overfitting to noise in a financial time series with only 5,000 daily observations?"*
+
+**Answer:** "Several mechanisms working together. First: aggressive regularization parameters — `min_child_weight` at 20-30 (requiring 20+ samples per leaf), `max_depth` at 3-4 (shallow trees), `reg_lambda` (L2 regularization) at 1.0-5.0. Second: subsampling — `subsample = 0.7` (use 70% of observations per tree) and `colsample_bytree = 0.7` (use 70% of features per tree). Third: early stopping against a time-series validation set — use the most recent 20% of data as validation, stop training when OOS loss stops improving. Fourth: limit feature count to < 20 features and use SHAP to verify that the model's feature importance ranks are stable across bootstrap resamples. If the top feature changes completely across resamples, the model is dominated by noise."
+
+---
+
+**Follow-up 2:** *"Can you walk me through building a macro regime classifier with LightGBM in Python?"*
+
+**Answer:**
+
+```python
+"""LightGBM macro regime classifier.
+
+Classifies market into risk-on / risk-off regimes using macro features.
+Follows Google Python Style Guide.
+"""
+
+from __future__ import annotations
+
+import lightgbm as lgb
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import TimeSeriesSplit
+from sklearn.metrics import classification_report
+
+
+def build_macro_features(df: pd.DataFrame) -> pd.DataFrame:
+    """Construct macro features for regime classification.
+
+    Args:
+        df: DataFrame with columns: vix, yield_2y, yield_10y,
+            spx_ret_21d, dxy_ret_5d, oil_ret_21d.
+
+    Returns:
+        Feature DataFrame with lagged and derived features.
+
+    Time Complexity: O(N) for rolling/lag operations.
+    Space Complexity: O(N * K) where K = number of features.
+    """
+    features = pd.DataFrame(index=df.index)
+    features["vix_level"] = df["vix"]
+    features["vix_change_5d"] = df["vix"].pct_change(5)
+    features["curve_slope"] = df["yield_10y"] - df["yield_2y"]
+    features["curve_change_21d"] = features["curve_slope"].diff(21)
+    features["spx_momentum"] = df["spx_ret_21d"]
+    features["oil_momentum"] = df["oil_ret_21d"]
+    features["dxy_momentum"] = df["dxy_ret_5d"]
+    # Realized vol regime
+    features["vol_regime"] = (
+        df["vix"].rolling(63).mean() / df["vix"].rolling(252).mean()
+    )
+    return features.dropna()
+
+
+def train_regime_classifier(
+    features: pd.DataFrame,
+    labels: pd.Series,  # 0 = risk-off, 1 = risk-on
+    n_splits: int = 5,
+) -> lgb.Booster:
+    """Train LightGBM regime classifier with time-series CV.
+
+    Args:
+        features: Feature matrix.
+        labels: Binary regime labels.
+        n_splits: Number of time-series CV splits.
+
+    Returns:
+        Trained LightGBM booster.
+
+    Time Complexity: O(N * D * T) where D = depth, T = trees.
+    Space Complexity: O(N * K).
+    """
+    params = {
+        "objective": "binary",
+        "metric": "auc",
+        "num_leaves": 15,           # Shallow trees
+        "min_child_samples": 30,    # Avoid overfitting
+        "learning_rate": 0.05,
+        "n_estimators": 500,
+        "subsample": 0.7,
+        "colsample_bytree": 0.7,
+        "reg_lambda": 2.0,
+        "verbose": -1,
+    }
+    tscv = TimeSeriesSplit(n_splits=n_splits, gap=20)  # 20-day embargo
+    oos_aucs = []
+    for fold, (train_idx, test_idx) in enumerate(tscv.split(features)):
+        x_train = features.iloc[train_idx]
+        y_train = labels.iloc[train_idx]
+        x_test = features.iloc[test_idx]
+        y_test = labels.iloc[test_idx]
+        model = lgb.LGBMClassifier(**params)
+        model.fit(
+            x_train, y_train,
+            eval_set=[(x_test, y_test)],
+            callbacks=[lgb.early_stopping(50, verbose=False)],
+        )
+        oos_aucs.append(model.best_score_["valid_0"]["auc"])
+        print(f"Fold {fold}: OOS AUC = {oos_aucs[-1]:.3f}")
+    print(f"Mean OOS AUC: {np.mean(oos_aucs):.3f} ± {np.std(oos_aucs):.3f}")
+    # Final model on full data
+    final_model = lgb.LGBMClassifier(**params)
+    final_model.fit(features, labels)
+    return final_model
+```
+
+**Time complexity:** O(N × K × T × D) where N = samples, K = features, T = number of trees, D = tree depth. For typical settings (N=5000, K=10, T=200, D=4), this is fast (seconds to minutes).  
+**Space complexity:** O(N × K) for the feature matrix.
+
+---
+
+<a name="q20"></a>
+### Q20. How do you evaluate a new alternative dataset for alpha potential?
+
+**Five-stage alt data evaluation framework:**
+
+**Stage 1 — Data quality assessment:**
+- Coverage: What fraction of the target universe has data? Survivorship bias?
+- Latency: When is data available relative to the market event it describes?
+- History: Minimum 5 years for backtesting; 10 years preferred
+- Stationarity: Has the data collection methodology changed over time?
+
+**Stage 2 — Economic hypothesis formation:**
+- Why should this data predict asset prices? What is the mechanism?
+- What is the information advantage over market consensus?
+- Who else has this data? If 50 hedge funds subscribe, alpha may already be arbitraged away
+
+**Stage 3 — Statistical evaluation:**
+- IC test: Spearman correlation between data feature and forward returns
+- Decile analysis: Sort by data feature, compute mean return by decile. Linear spread required
+- Multiple testing: Apply FDR correction for all IC tests run
+
+**Stage 4 — Cost-adjusted evaluation:**
+- Data cost (licensing) vs. estimated alpha generated
+- Signal turnover × transaction cost must leave positive net alpha
+
+**Stage 5 — Operational due diligence:**
+- Vendor reliability: SLA, uptime guarantees
+- Legal review: Is the data legally sourced? MNPI risk?
+- Revision risk: Does historical data get revised? Backdated revisions create look-ahead bias
+
+---
+
+**Follow-up 1:** *"What is point-in-time data and why is it critical for alt data backtesting?"*
+
+**Answer:** "Point-in-time data records what was *known* at each historical date, rather than what we know *now* about that date. This is critical because many fundamental datasets (earnings, macro revisions, credit ratings) are restated after the fact. If your backtest uses the current version of GDP data, which has been revised multiple times, to make decisions as if you had that data in 2010, you're building a misleading backtest. For example, the BLS routinely revises non-farm payrolls by 50-100K jobs in subsequent months. Point-in-time databases (e.g., Compustat's `rdq` date for earnings, or vintage databases from the St. Louis Fed for macro data) record what was published at each date without subsequent revisions. Using non-point-in-time data can inflate backtest Sharpe ratios by 30-50% in fundamental factor strategies."
+
+---
+
+**Follow-up 2:** *"What kinds of alternative data would be most relevant for Graham's quant macro strategies?"*
+
+**Answer:** "Three categories with high relevance to global macro futures and FX. First: **shipping and trade flow data** — AIS vessel tracking, port congestion data, container rates (Baltic Dry Index, Freightos FBX). These lead global trade volumes by 2-4 weeks, which in turn predict commodity prices, EM FX, and global risk appetite. Second: **satellite data** — nighttime light intensity as a GDP nowcaster (especially useful for EM countries with lagged official data), crop monitoring via NDVI for agricultural commodity signals. Third: **central bank communication analytics** — structured extraction of sentiment, certainty language, and topic shifts from Fed/ECB/PBOC documents. Given Antoine's focus, I'd particularly want to build on this third category and explore whether combining satellite-based activity data with central bank communication signals creates a genuinely orthogonal macro nowcasting factor."
+
+---
+
+<a name="q21"></a>
+### Q21. What feature engineering techniques are most important in macro time-series modeling?
+
+**Core feature engineering taxonomy for macro time series:**
+
+**1. Price-derived features:**
+- Returns at multiple horizons: $r_t^{(h)} = \frac{P_t - P_{t-h}}{P_{t-h}}$ for $h \in \{1, 5, 21, 63, 126, 252\}$
+- Volatility: realized vol $\sigma_t = \sqrt{\frac{252}{N} \sum_{i=t-N}^{t} r_i^2}$
+- Momentum relative to long-term mean: $\text{Z-score}_t = \frac{P_t - \mu_{252}}{\sigma_{252}}$
+
+**2. Cross-sectional features:**
+- Rank of asset within universe by return or carry
+- Cross-asset correlations (rolling 21-day)
+- Dispersion of returns within sector
+
+**3. Macro indicator features:**
+- PMI surprise (actual vs. Bloomberg consensus forecast)
+- Yield curve shape: level, slope ($10y - 2y$), curvature ($2 \times 5y - 2y - 10y$)
+- Credit spreads: IG, HY, CDS indices
+
+**4. Time/calendar features:**
+- Day of week (Friday FX dynamics, Monday gap fills)
+- Distance to scheduled macro events (FOMC, NFP) in trading days
+- Month-end rebalancing effects
+
+**5. Feature transformations:**
+- Log transformation for skewed distributions
+- Rolling z-score normalization (prevents distribution shift across regimes)
+- Clipping outliers at 3 standard deviations
+
+**Key discipline:** Never use future information in feature construction. Rolling statistics must use only data up to time $t$. The `rolling(...).mean()` shift in pandas must be explicitly verified.
+
+---
+
+**Follow-up 1:** *"How do you handle missing data in macro datasets — especially for EM economies with infrequent data releases?"*
+
+**Answer:** "Several techniques depending on the missing data mechanism. If data is **missing at random** (random reporting delays): forward-fill with the last known value, then flag the filled period with a binary 'stale data' indicator feature that the model can learn to discount. If data is **systematically missing** (EM country never releases high-frequency data): use a proxy — satellite-based activity indices, trade flow data, or cross-country regression nowcasts. If data is **missing due to crisis** (markets closed during COVID): the missing data is informative — I treat it as a 'market stress' dummy variable. I never perform mean imputation without explicit validation that the missing mechanism is truly random, because mean imputation introduces look-ahead bias if the mean is computed using data from the missing period."
+
+---
+
+**Follow-up 2:** *"What is the most dangerous feature engineering mistake in systematic macro modeling?"*
+
+**Answer:** "Look-ahead bias from rolling window calculations. The canonical failure: computing a rolling mean or standard deviation in pandas without explicitly shifting by one period creates a subtle look-ahead because the rolling window at time $t$ includes the observation at time $t$ itself. In Python: `df['feature'] = df['price'].rolling(20).mean()` gives the mean including today's price — this is correct for feature construction. But `df['return'] = df['price'].pct_change()` and then `df['feature'].shift(1)` is needed before using as a predictor. The rule: **every feature that will be used to predict $r_{t+1}$ must be constructed using only information available at end of day $t$.** I validate this by running the full pipeline on a synthetic dataset where I know the correct answer, and verifying that the model has no forward-looking information."
+
+---
+
+<a name="q22"></a>
+### Q22. Describe how you would use a Hidden Markov Model for regime classification.
+
+**HMM structure for macro regimes:**
+
+State space: $K$ hidden regimes (typically $K = 2$ or $K = 3$)
+
+Observation model: $\mathbf{x}_t | z_t = k \sim \mathcal{N}(\boldsymbol{\mu}_k, \Sigma_k)$
+
+Transition model: $P(z_t = j | z_{t-1} = i) = A_{ij}$
+
+**Baum-Welch estimation** (EM algorithm):
+- E-step: Compute $\gamma_t(k) = P(z_t = k | \mathbf{x}_{1:T})$ via forward-backward algorithm
+- M-step: Update $\boldsymbol{\mu}_k, \Sigma_k, A$ using smoothed state probabilities
+
+**Feature selection for 3-regime macro HMM:**
+
+$$\mathbf{x}_t = [\text{VIX}_t, \Delta\text{yield curve}_t, r_{\text{SPX}, t}^{21d}, r_{\text{Commodities}, t}^{21d}, \text{OFI}_t, \Delta\text{credit spread}_t]$$
+
+**Regime interpretation:**
+- Regime 1: Low vol, trending (trend-following favorable)
+- Regime 2: High vol, mean-reverting (carry and reversion favorable)
+- Regime 3: Crisis (reduce all risk)
+
+**Production implementation steps:**
+
+```
+1. Fit HMM offline on training data (Baum-Welch)
+2. At each time t: run Viterbi or compute posterior P(z_t | x_{1:t}) online
+3. Use posterior probabilities (not hard labels) as regime weights
+4. Multiply signal weights by regime-conditional scaling factors
+5. Weekly re-estimation on expanding window with 63-day minimum
+```
+
+---
+
+**Follow-up 1:** *"How do you select K — the number of regimes — and how do you validate the selection?"*
+
+**Answer:** "I use a combination of information criteria and economic interpretability. First: AIC/BIC for model selection — BIC penalizes complexity more aggressively, which prevents over-parameterization. Plot BIC vs K for K = 2, 3, 4, 5 and choose the elbow. Second: economic interpretability — I label each regime retrospectively and verify that the identified regime boundaries match economically meaningful periods (2008 crisis, 2020 COVID, 2022 hiking cycle). If K=3 gives me: 'low vol trending,' 'choppy normal,' and 'crisis,' that's economically coherent. If K=5 gives me regimes that I can't name intuitively, I'm probably over-parametrized. Third: out-of-sample regime stability — verify that a model fit on the first half of data produces regime boundaries consistent with those from a model fit on the second half."
+
+---
+
+**Follow-up 2:** *"How do you handle the HMM's assumption of Gaussian emissions in fat-tailed financial returns?"*
+
+**Answer:** "The Gaussian assumption is a significant limitation for financial returns, which have fat tails and occasional jumps. Two approaches. First: **Student-t emissions** — replace $\mathcal{N}(\boldsymbol{\mu}_k, \Sigma_k)$ with a multivariate Student-t distribution with degrees of freedom $\nu_k$ estimated per regime. This adds one parameter per regime but dramatically improves the fit for crisis regimes where returns are highly non-Gaussian. Second: **Mixture of Gaussians per regime** — each hidden state is itself a mixture of Gaussians, allowing for multi-modal distributions within a regime. In practice, I use Student-t emissions for crisis regimes and Gaussian for normal regimes — a hybrid approach. The validation test: compare the KS-test p-value between the empirical return distribution conditional on each regime and the fitted parametric distribution. Gaussian fit typically fails for K=crisis with p << 0.01; Student-t passes."
+
+---
+
+## SECTION IV — PORTFOLIO CONSTRUCTION & RISK
+
+---
+
+<a name="q23"></a>
+### Q23. How do you construct a diversified multi-signal portfolio?
+
+**Full portfolio construction pipeline:**
+
+**Step 1: Signal normalization**
+Scale each signal $k$ to equal volatility:
+$$\tilde{s}_{k,t} = \frac{s_{k,t} - \hat{\mu}_k}{\hat{\sigma}_k}$$
+
+**Step 2: Signal combination (per asset $i$)**
+$$\hat{r}_{i,t} = \sum_k w_k \tilde{s}_{k,i,t}$$
+
+**Step 3: Position sizing via volatility targeting**
+$$\text{Pos}_{i,t} = \frac{\text{Target Vol} \cdot w_k}{\hat{\sigma}_{i,t} \cdot \sqrt{252}}$$
+
+**Step 4: Cross-asset risk parity**
+Allocate risk equally across asset classes:
+$$w_{\text{class}} = \frac{1/\sigma_{\text{class}}}{\sum_j 1/\sigma_j}$$
+
+**Step 5: Portfolio-level constraints**
+- Maximum sector concentration: ≤ 30% of risk
+- Maximum single-asset allocation: ≤ 5% of portfolio vol
+- Maximum leverage: ≤ 5× notional
+- Maximum drawdown trigger: reduce all positions by 50% if 15% drawdown from peak
+
+**Step 6: Transaction cost optimization**
+Apply a trading threshold: only rebalance position if the signal change × vol exceeds the estimated round-trip transaction cost.
+
+---
+
+**Follow-up 1:** *"How do you handle the instability of the covariance matrix in portfolio optimization?"*
+
+**Answer:** "Covariance matrix estimation from 252 days of returns for a 50-asset portfolio is severely underdetermined — we're estimating $\frac{50 \times 51}{2} = 1,275$ parameters from 252 observations. This produces an ill-conditioned matrix dominated by estimation noise. Three approaches: (1) **Ledoit-Wolf shrinkage** — shrinks the sample covariance toward a structured target (equal-correlation or constant-correlation model). The shrinkage intensity is chosen analytically to minimize expected Frobenius distance. (2) **Factor model** — decompose the covariance into systematic factor covariance (estimated from longer history) plus idiosyncratic terms. For macro futures, I use 5-10 macro factors (global equity, global rates, global FX, commodities, credit). (3) **Hierarchical Risk Parity (HRP)** — uses the correlation structure to build a hierarchical clustering tree and allocate risk down the tree, avoiding the matrix inversion entirely. HRP is most robust when the number of assets is large relative to the history."
+
+---
+
+**Follow-up 2:** *"What is your view on Kelly criterion for position sizing in systematic strategies?"*
+
+**Answer:** "The full Kelly criterion maximizes long-run geometric growth but prescribes aggressive leverage that produces catastrophic drawdowns in the tails. Full Kelly implies the worst-case drawdown is 100% with probability 1 over a long enough horizon. In practice, I use fractional Kelly — typically 25-50% of the Kelly optimal size. The theoretical justification: the Kelly criterion assumes you know the true return distribution, which we never do. Under parameter uncertainty, fractional Kelly is actually optimal for maximizing geometric growth in a Bayesian sense. My calibration: I target a portfolio Sharpe of 1.0-1.2 and set leverage such that the expected annualized vol is 10-15%. This typically corresponds to 30-40% Kelly. I also impose hard stop-loss triggers (15% drawdown from peak = 50% position reduction) as a risk control that the Kelly framework doesn't provide."
+
+---
+
+<a name="q24"></a>
+### Q24. Explain volatility targeting and risk budgeting in a CTA context.
+
+**Volatility targeting:**
+
+For a single asset $i$, the volatility-targeted position in notional terms:
+
+$$N_{i,t} = \frac{\tau}{\hat{\sigma}_{i,t}} \cdot \frac{\text{Signal}_{i,t}}{|\text{Signal}|_{\max}}$$
+
+where $\tau$ is the target portfolio volatility (e.g., 10% annualized) and $\hat{\sigma}_{i,t}$ is the estimated daily volatility scaled to annual.
+
+**Why volatility target?** Without vol-targeting, a fixed-notional position in crude oil generates 10× more volatility in a VIX-spike environment than in a calm market. Volatility targeting equalizes the risk contribution across time, preventing the portfolio from accidentally concentrating risk in high-vol episodes.
+
+**Risk budgeting across assets:**
+
+Define risk budget $b_i$ for asset $i$: $\sum_i b_i = 1$.
+
+Risk contribution of asset $i$:
+$$\text{RC}_i = w_i \cdot \frac{\partial \sigma_P}{\partial w_i} = \frac{w_i (\Sigma \mathbf{w})_i}{\sigma_P}$$
+
+Risk parity sets $\text{RC}_i = b_i \sigma_P$ for all $i$, which gives the risk parity portfolio weights.
+
+**Practical CTA implementation:**
+
+- Estimate $\hat{\sigma}_{i,t}$ using EWMA with $\lambda = 0.94$ (RiskMetrics) on daily returns
+- Cap daily vol estimate: $\hat{\sigma}_{i,t} \leq 3 \times \hat{\sigma}_{i, \text{252d avg}}$ (prevents vol spike from causing extreme position reduction)
+- Rebalance positions daily or weekly depending on signal turnover
+
+---
+
+**Follow-up 1:** *"How does volatility targeting perform during a volatility regime shift — e.g., the March 2020 COVID crash?"*
+
+**Answer:** "Volatility targeting has a well-known pro-cyclical deleveraging effect. As volatility spikes in a crisis, the target vol formula forces rapid position reduction, which adds selling pressure when markets are already falling. In March 2020, EWMA vol for S&P 500 went from 15% to 80%+ in a week — vol-targeting models cut equity exposure by 5×, exacerbating the selloff. Two mitigation strategies: (1) **Vol cap**: hard cap on daily vol estimate prevents the model from cutting more than, say, 3× normal. (2) **Slow EWMA for position adjustment**: use a short-span EWMA for signal (responsive to price movements) but a longer-span EWMA for vol estimation. This separates the signal response from the leverage response, reducing the pro-cyclical leverage effect. In my implementations, I use $\lambda = 0.94$ for vol estimation (RiskMetrics standard) but impose a floor on the vol estimate at the 1-year rolling average, preventing the leverage from falling below 30% of normal."
+
+---
+
+**Follow-up 2:** *"What is the difference between risk parity and equal weighting, and when does risk parity outperform?"*
+
+**Answer:** "Equal weighting allocates equal notional to each asset; risk parity allocates equal risk contribution. In a portfolio with assets of similar volatility, they're identical. The difference appears when volatilities differ significantly — e.g., commodities (annual vol 25-35%) vs. bonds (annual vol 5-10%). Equal weighting in a multi-asset macro portfolio means commodities dominate the risk, even if nominally small in notional. Risk parity corrects this by allocating more notional to bonds (to bring their risk contribution up to match commodities). Risk parity outperforms equal weighting when: (1) asset volatilities differ substantially; (2) returns are relatively similar across assets — i.e., the Sharpe ratios are comparable. If one asset has a dramatically higher Sharpe, equal weighting underperforms by not overweighting the high-Sharpe asset. In practice, I use risk parity as the baseline and then tilt from it based on signal forecasts."
+
+---
+
+<a name="q25"></a>
+### Q25. How do you control drawdowns without sacrificing long-run alpha?
+
+**Three-layer drawdown control framework:**
+
+**Layer 1: Position-level stops (surgical)**
+- Per-signal maximum loss: if a signal's cumulative PnL since inception falls below -2 × expected annual vol, reduce signal weight to 50%
+- Thesis invalidation: if a signal's live IC falls below -0.05 for 60+ trading days, suspend
+
+**Layer 2: Portfolio-level dynamic leverage (systematic)**
+- Define drawdown from peak: $\text{DD}_t = \frac{P_t - \max_{s \leq t} P_s}{\max_{s \leq t} P_s}$
+- Drawdown-triggered deleveraging: linear reduction of all positions as DD deepens
+  - DD > 5%: leverage × 0.9
+  - DD > 10%: leverage × 0.7
+  - DD > 15%: leverage × 0.5
+  - DD > 20%: go to 25% leverage, mandatory review
+
+**Layer 3: Correlation-based de-risking (macro)**
+- Monitor cross-asset correlation: when all signals simultaneously move against the portfolio (correlation > 0.7 intraday), this signals a systemic event
+- Trigger: reduce all risk by 30% immediately; investigates causality
+
+**Key trade-off:** More aggressive drawdown controls reduce the maximum drawdown but also reduce the expected return by cutting exposure during volatile periods that often precede strong recoveries (e.g., March 2020 → subsequent trend run). I calibrate the triggers to minimize the loss of expected annual return per unit of drawdown reduction, using a Pareto frontier across historical regimes.
+
+---
+
+**Follow-up 1:** *"How do you distinguish a drawdown that requires defensive action vs. one that is within the normal expected range?"*
+
+**Answer:** "I use the CPCV-derived distribution of drawdowns. From the distribution of OOS path returns, I compute the empirical CDF of drawdown severity. A drawdown at the 80th percentile of expected severity doesn't trigger action — it's within the model's expected behavior. A drawdown at the 95th+ percentile raises an alert for investigation: is this a regime the model wasn't designed for, or is it data quality / execution issues? The trigger for defensive action is not the absolute drawdown level but the drawdown relative to the model's own prediction interval. Concretely: if my model's expected max drawdown over 12 months is 12% (90th percentile), a -10% drawdown in 3 months is anomalously fast and warrants investigation. A -10% drawdown in 12 months is normal."
+
+---
+
+**Follow-up 2:** *"What are the most common sources of unexpected drawdowns in systematic macro strategies?"*
+
+**Answer:** "Five sources that have been most prominent in my experience: (1) **Correlated unwinding** — when multiple strategies hold correlated positions and all reduce simultaneously (CTA crowding). 2022 was an example where long-duration bond + short equity positions were simultaneously stopped out across the industry. (2) **Regime switch at formation** — a new trend forms rapidly and the model has insufficient data to generate a confident signal, but the position it does hold is directionally wrong during the formation. (3) **Roll cost surprise** — in commodity markets, unexpected shift from contango to backwardation (or vice versa) can generate large unexplained losses in roll-yield-contaminated positions. (4) **Data disruption** — a data vendor outage or pricing error propagates into signal construction and generates spurious positions. (5) **Execution slippage in illiquid regimes** — positions marked at mid-market in simulation, but actual execution in stressed markets incurs 5-10× normal slippage."
+
+---
+
+<a name="q26"></a>
+### Q26. How do you model and incorporate transaction costs into backtesting?
+
+**Transaction cost model components:**
+
+**1. Commission and fees:** Fixed per-contract cost; straightforward to include.
+
+**2. Bid-ask spread:** 
+$$\text{Spread cost} = \frac{1}{2} \text{Spread}_{i,t} \times |\Delta \text{Pos}_{i,t}|$$
+
+**3. Market impact (Almgren-Chriss):**
+
+$$\text{TC}_{i,t} = \eta \sigma_{i,t} \left(\frac{\dot{x}}{V_{i,t}}\right)^{3/2} + \gamma \sigma_{i,t} \left(\frac{x}{V_{i,t}}\right)$$
+
+where $\eta$ is the temporary impact coefficient, $\gamma$ is the permanent impact coefficient, $\dot{x}$ is the trading rate, $x$ is the total order size, and $V_{i,t}$ is the average daily volume.
+
+**4. Opportunity cost:**
+The cost of not trading immediately vs. spreading execution over time.
+
+**Backtest integration:**
+
+```python
+def apply_transaction_costs(
+    positions: pd.DataFrame,
+    prices: pd.DataFrame,
+    adv: pd.DataFrame,  # Average daily volume
+    eta: float = 0.1,
+    gamma: float = 0.1,
+) -> pd.Series:
+    """Compute Almgren-Chriss transaction costs."""
+    position_changes = positions.diff().abs()
+    spreads = prices.rolling(20).std() / prices * 0.001  # Proxy for spread
+    spread_cost = 0.5 * spreads * position_changes
+    vol = prices.pct_change().rolling(20).std()
+    participation = position_changes / adv
+    impact = eta * vol * participation ** 1.5 * prices
+    total_cost = (spread_cost + impact).sum(axis=1)
+    return total_cost
+```
+
+**Key discipline:** Never use constant cost assumptions. Costs vary by asset class, time of day, and volatility regime. I build asset-class-specific cost models calibrated on execution data.
+
+---
+
+**Follow-up 1:** *"How does transaction cost modeling change for illiquid markets like commodity futures vs. liquid FX?"*
+
+**Answer:** "Dramatically. For liquid G10 FX, the bid-ask spread is 0.1-0.5 pips, market impact for $50M orders is minimal, and the primary cost is the spread. For commodity futures (e.g., natural gas, lean hogs), the spread can be 0.5-1% of price, daily volume is orders of magnitude smaller, and even moderate-sized orders move the market. My calibration approach: I run empirical market impact studies on our actual execution data — regress implementation shortfall (actual execution price vs. arrival price) against order size / ADV ratio. I estimate the temporary and permanent impact coefficients separately and use these in the backtest cost model. For thinly traded commodities, I also apply a 'capacity constraint' — the signal weight is automatically reduced if the required trade size exceeds 5% of ADV."
+
+---
+
+**Follow-up 2:** *"How do you handle the fact that transaction costs are endogenous to the strategy in a high-turnover signal?"*
+
+**Answer:** "This is the 'market impact feedback loop' problem. In backtesting, I assume my orders don't affect prices — but at scale, they do. The implication: a strategy that looks great in backtest may generate significantly higher costs in live trading because our orders move the market. My approach: (1) Estimate strategy capacity by computing the order size at target AUM relative to ADV. If target position size > 1% of ADV for any instrument, apply a participation penalty. (2) Model the impact as an increasing function of participation rate. (3) Run sensitivity analysis: how much does the net Sharpe decline as AUM grows from $100M to $500M to $1B? This gives the 'Sharpe vs. capacity' curve. I report this curve to management before deployment, not just the zero-impact backtest Sharpe."
+
+---
+
+<a name="q27"></a>
+### Q27. How do you think about strategy capacity and leverage constraints?
+
+**Capacity estimation framework:**
+
+For a signal with turnover $\tau$ (fraction of portfolio traded per day) and market impact model:
+
+$$\text{Capacity} = \text{ADV} \times \text{Max Participation Rate} / \tau$$
+
+For a trend signal with 20% monthly turnover trading crude oil futures (ADV $\approx$ 1M contracts):
+
+$$\text{Capacity} \approx 1,000,000 \times 5\% / (0.20/20) \approx \$5B$$
+
+**Leverage considerations:**
+
+- Futures strategies are leveraged by construction (initial margin is 5-15% of notional)
+- Target vol determines implicit leverage: for 10% vol target on a 15% vol asset, leverage = 10/15 = 0.67×
+- Regulatory constraints (UCITS: 200% gross exposure limit)
+- Client mandated limits (drawdown triggers, margin requirements)
+
+**Practical limits at GCM scale ($22B AUM):**
+- Large positions in thinly traded commodity markets
+- Concentration in specific FOMC-sensitive instruments
+- Roll date liquidity in commodity futures
+- Cross-asset crowding during deleveraging events
+
+---
+
+**Follow-up 1:** *"How do you adjust your signal weights to respect capacity constraints without abandoning alpha?"*
+
+**Answer:** "I use a penalized optimization that adds a capacity cost to the portfolio objective: $\max_w \mathbf{w}^\top \boldsymbol{\mu} - \lambda \sigma_P - \kappa \sum_i c_i(w_i)$ where $c_i(w_i)$ is the transaction cost function for asset $i$ that grows super-linearly with position size. This naturally tilts the optimizer away from capacity-constrained assets toward liquid alternatives with similar expected alpha. For systematic strategies, I also build a 'liquidity score' for each signal — the fraction of the target position that can be executed within 1% of arrival price — and scale signal weights by this score. Signals that require illiquid execution get down-weighted relative to their standalone expected alpha."
+
+---
+
+## SECTION V — STATISTICS & MATHEMATICS
+
+---
+
+<a name="q28"></a>
+### Q28. What are the key statistical issues in financial time-series modeling?
+
+**Seven core issues:**
+
+**1. Non-stationarity:**
+Price levels are non-stationary (unit root). Work with returns or log-price differences. Use ADF/KPSS tests to verify.
+
+**2. Autocorrelation:**
+Returns exhibit autocorrelation at short horizons (microstructure) and volatility is highly autocorrelated. Standard OLS t-statistics are biased. Use Newey-West HAC standard errors: $\hat{\Sigma}_{NW} = \Gamma_0 + \sum_{j=1}^{L} w_j(\Gamma_j + \Gamma_j^\top)$ where $L = \lfloor 4(T/100)^{2/9} \rfloor$.
+
+**3. Heteroskedasticity:**
+Volatility clustering: $\text{Var}(\epsilon_t | \mathcal{F}_{t-1})$ is time-varying. GARCH models this explicitly.
+
+**4. Fat tails:**
+Returns have excess kurtosis (especially at daily frequency). Normal distribution understates tail risk. Use Student-t or stable distributions.
+
+**5. Regime changes:**
+Structural breaks cause parameter instability. Tests: Chow test (known break), Andrews-Ploberger test (unknown break). Remedy: rolling estimation or regime-switching models.
+
+**6. Look-ahead bias:**
+Information from time $t+1$ contaminating training features at time $t$. Prevented only by strict pipeline discipline.
+
+**7. Survivorship bias:**
+Testing on current universe omits delisted/bankrupt instruments that would have been held historically. Use point-in-time universe construction.
+
+---
+
+**Follow-up 1:** *"How do you test for structural breaks in a time series?"*
+
+**Answer:** "For a known candidate break date, the Chow test: estimate the model on pre- and post-break sub-periods separately, and test whether the parameters differ using an F-test. The F-statistic: $F = \frac{(RSS_{\text{full}} - RSS_1 - RSS_2) / k}{(RSS_1 + RSS_2) / (T - 2k)} \sim F(k, T-2k)$. For unknown break dates, the Andrews (1993) SupLF test: compute the Chow F-statistic for every possible break date in the 'trimmed' range (typically 15th-85th percentile of the sample), and take the supremum. The asymptotic distribution is non-standard and requires Hansen's (1997) critical values. For our macro signal research, I run rolling Chow tests annually as part of signal maintenance — any signal that fails the stability test in the most recent 2-year window goes on a watchlist for re-validation."
+
+---
+
+**Follow-up 2:** *"Explain the difference between spurious regression and cointegration."*
+
+**Answer:** "Two non-stationary series $X_t$ and $Y_t$ that are independent will nonetheless show high $R^2$ in an OLS regression of $Y$ on $X$, with apparently significant t-statistics — this is spurious regression. Granger and Newbold (1974) showed this is a pathology of regressing integrated processes. Cointegration is the meaningful exception: two non-stationary series are cointegrated if a linear combination $Y_t - \beta X_t$ is stationary — they share a common stochastic trend. The Engle-Granger test: estimate $\hat{\beta}$ via OLS, then apply ADF to the residuals $\hat{u}_t = Y_t - \hat{\beta} X_t$. If $\hat{u}_t$ is stationary, the series are cointegrated. The Johansen test handles multiple series simultaneously using maximum likelihood. Practical application in macro: the level of crude oil and gasoline prices are cointegrated (both non-stationary but the crack spread is stationary) — this enables mean-reversion strategies in the crack spread that would be spurious if you treated the levels directly."
+
+---
+
+<a name="q29"></a>
+### Q29. Explain GARCH/EGARCH/HAR-RV and when to use each.
+
+**GARCH(1,1):**
+
+$$\sigma_t^2 = \omega + \alpha \epsilon_{t-1}^2 + \beta \sigma_{t-1}^2$$
+
+where $\alpha + \beta < 1$ for stationarity. Estimated by maximum likelihood. Use when: you need a simple, robust volatility forecast for risk management and the data frequency is daily.
+
+**EGARCH (Nelson, 1991):**
+
+$$\ln \sigma_t^2 = \omega + \beta \ln \sigma_{t-1}^2 + \gamma \frac{\epsilon_{t-1}}{\sigma_{t-1}} + \alpha \left(\left|\frac{\epsilon_{t-1}}{\sigma_{t-1}}\right| - \sqrt{2/\pi}\right)$$
+
+Key advantage: the $\gamma$ term captures asymmetry — negative shocks increase volatility more than positive shocks of the same magnitude (the leverage effect). Use when: modeling equity volatility where the leverage effect is economically important (markets fall harder on down days).
+
+**HAR-RV (Corsi, 2009):**
+
+$$\text{RV}_{t+1} = c + \beta_d \text{RV}_t^{(d)} + \beta_w \text{RV}_t^{(w)} + \beta_m \text{RV}_t^{(m)} + \epsilon_{t+1}$$
+
+where $\text{RV}_t^{(d)}, \text{RV}_t^{(w)}, \text{RV}_t^{(m)}$ are daily, weekly, and monthly realized variances. Use when: you have high-frequency intraday data to construct realized variance, and you want to capture the long-memory structure of volatility (heterogeneous agents at different horizons). HAR-RV is simpler than GARCH in construction and typically outperforms in volatility forecasting when high-frequency data is available.
+
+**My usage at Millburn:**
+- GARCH(1,1): baseline vol model for position sizing (daily frequency)
+- EGARCH: equity indices and equity futures (leverage effect)
+- HAR-RV: when we had access to intraday data; better for Sharpe-based signal ranking where the vol estimate quality matters most
+
+---
+
+**Follow-up 1:** *"How do you choose the lag structure for a GARCH model?"*
+
+**Answer:** "GARCH(1,1) is sufficient for most financial return series — the parsimonious specification captures 90%+ of the volatility dynamics observable in daily data. Higher-order GARCH(p,q) rarely improves OOS performance meaningfully. The diagnostic test: after fitting GARCH(1,1), examine the Ljung-Box Q-statistic on the standardized residuals $\hat{z}_t = \epsilon_t / \hat{\sigma}_t$ and on $\hat{z}_t^2$. If there's remaining autocorrelation in $\hat{z}_t^2$, the GARCH order may need increasing. In practice, I almost always find GARCH(1,1) passes these diagnostics for macro futures at daily frequency. The exception is high-frequency data (minutes), where higher-order ARCH terms may be needed."
+
+---
+
+**Follow-up 2:** *"In your experience at Millburn using HAR-RV for multi-horizon vol forecasting — what were the practical challenges?"*
+
+**Answer:** "Three main challenges. First: **data quality of realized variance** — HAR-RV uses intraday returns to compute realized variance. Market microstructure noise (bid-ask bounce) at frequencies below 5 minutes inflates realized variance estimates. I used 5-minute sampling as the minimum, following the Bandi-Russell optimal sampling frequency literature. Second: **jump contamination** — realized variance includes both continuous variation and jump components. Jumps (large intraday moves) contaminate the vol forecast for normal-regime purposes. I applied bipower variation (Barndorff-Nielsen and Shephard) to separate the jump component and used only the continuous component in the HAR model. Third: **out-of-hours returns** — for futures markets that trade nearly 24 hours, the variance of the overnight/extended-hours period is large but missing from intraday data. I supplemented HAR-RV with an overnight return variance term."
+
+---
+
+<a name="q30"></a>
+### Q30. How do you apply Bayesian methods to signal sizing and parameter estimation?
+
+**Bayesian signal sizing framework:**
+
+Rather than sizing a position based on a point estimate of expected return, use the full posterior:
+
+$$P(\mu | \text{data}) \propto P(\text{data} | \mu) \cdot P(\mu)$$
+
+**Prior construction:** Based on the signal's theoretical IC and historical OOS distribution. E.g., for a carry signal with 30 years of academic literature, I set a relatively confident prior $\mu_0 \sim \mathcal{N}(0.08, 0.02^2)$ (8% annualized return, tight).
+
+**Likelihood:** The observed signal returns update the posterior.
+
+**Position sizing using posterior:**
+
+$$w^* = \frac{\mathbb{E}_{\text{post}}[\mu]}{\sigma^2} \times k$$
+
+where $k$ is a risk-aversion coefficient. Using the full posterior rather than a point estimate automatically shrinks positions toward zero when data is scarce (wide posterior) and toward Kelly-optimal when data is abundant (narrow posterior).
+
+**Practical implementation: hierarchical Bayesian model**
+
+For a 30-signal library with assets indexed by $i$ and signals by $k$:
+
+$$\mu_{i,k} | \bar{\mu}_k, \tau_k^2 \sim \mathcal{N}(\bar{\mu}_k, \tau_k^2)$$
+$$\bar{\mu}_k | \mu_0, \sigma_0^2 \sim \mathcal{N}(\mu_0, \sigma_0^2)$$
+
+This shrinks each asset's signal weight toward the cross-sectional mean, implementing Stein-type shrinkage automatically. Estimated via MCMC (PyMC) or variational inference.
+
+---
+
+**Follow-up 1:** *"How does Bayesian parameter estimation differ from Frequentist in practical impact for a systematic strategy?"*
+
+**Answer:** "The key practical difference is in how each handles small samples and parameter uncertainty. In frequentist OLS, I get a point estimate of expected return $\hat{\mu}$ and I use it directly for sizing. If I have only 2 years of data, my $\hat{\mu}$ has huge standard errors but OLS still returns a point estimate — and I might oversize the position. Bayesian estimation returns a posterior distribution over $\mu$. When data is sparse, the posterior is wide and dominated by the prior. The Kelly-Bayesian position size is $\frac{\mathbb{E}[\mu]}{\sigma^2}$ which is close to zero when the posterior mean is close to the prior mean (zero) and uncertainty is high. As data accumulates, the posterior concentrates and the position size grows. This automatic shrinkage prevents the aggressive over-sizing that frequentist estimates produce with limited data — which is exactly the overfitting protection I want."
+
+---
+
+**Follow-up 2:** *"How do you set the prior for a completely new signal type with no historical data?"*
+
+**Answer:** "For a genuinely novel signal with no prior art, I use a 'skeptical prior' centered at zero: $\mu \sim \mathcal{N}(0, 0.05^2)$. This prior says: before seeing data, I expect this signal has zero excess return, with 95% probability the true alpha is between -10% and +10% annualized. This is appropriately skeptical. As I accumulate OOS data, the posterior will update. If after 50 independent OOS observations the posterior mean is still centered above 5% annualized, that's genuine evidence. I combine this with the DSR (Deflated Sharpe Ratio) to penalize for the number of signals tested before arriving at this one. The combination of skeptical Bayes prior plus DSR multiple-testing correction is my most robust defense against fooling myself."
+
+---
+
+<a name="q31"></a>
+### Q31. Explain walk-forward and Combinatorial Purged Cross-Validation (CPCV).
+
+**Walk-Forward Validation:**
+
+```
+Training        Test
+│─────────────│ │─────│
+t=1          t=T1   t=T1+h
+
+Next step:
+│──────────────────│ │─────│
+t=1              t=T2   t=T2+h
+```
+
+Parameters are estimated on an expanding (or rolling) training window. The test period advances forward in time. This respects temporal causality — you never use future data to estimate past parameters.
+
+**Limitation:** Only one OOS path. Single estimate of OOS performance has high variance.
+
+**Combinatorial Purged Cross-Validation (CPCV):**
+
+Proposed by López de Prado (2018). Generates multiple OOS paths from the same dataset.
+
+**Algorithm:**
+
+1. Divide dataset into $N$ groups of contiguous observations
+2. Choose $k$ groups as the test set from $\binom{N}{k}$ possible combinations
+3. For each combination: the training set is all observations *not* in the test set, *purged* of observations within an embargo window of the test set
+4. Train model on purged training set, evaluate on test set
+5. Repeat for all $\binom{N}{k}$ combinations
+6. Aggregate OOS performance statistics across all paths
+
+**Example:** $N = 10$ groups, $k = 2$: $\binom{10}{2} = 45$ OOS paths.
+
+**Advantages over walk-forward:**
+- 45 independent Sharpe estimates instead of 1
+- Full distribution of OOS performance (quantiles, not just mean)
+- Better coverage of regime diversity (test set includes periods from throughout the sample, not just the end)
+
+---
+
+**Follow-up 1:** *"What is the purging step in CPCV and why is it necessary?"*
+
+**Answer:** "Purging removes training observations that share information with test observations due to autocorrelation in features or overlapping return windows. Suppose you construct a 21-day forward return feature for observation at time $t$: $r_t^{21d} = P_{t+21}/P_t - 1$. This feature is constructed using prices up to time $t+21$. If the test set includes time $t+5$, then the training observation at time $t$ 'knows' the price at $t+21$, which post-dates the test observation at $t+5$. Without purging, the model is trained on contaminated data. The embargo window should be at least as long as the longest feature lookback or forward-return window. For a signal with a 21-day forward return target, I use a 21-day embargo on each side of the test boundary."
+
+---
+
+**Follow-up 2:** *"How do you interpret the distribution of OOS Sharpes from CPCV?"*
+
+**Answer:** "I look at five statistics from the distribution: (1) **Mean OOS Sharpe** — the best estimate of forward-looking performance. (2) **10th percentile** — the 'bear case' performance. I require this to exceed my minimum deployment threshold (e.g., 0.4). (3) **Fraction of paths with negative Sharpe** — if > 20% of paths are negative, the signal is not reliably positive even in-sample. (4) **Sharpe dispersion** (standard deviation of the distribution) — high dispersion indicates the signal is regime-dependent. A signal with mean Sharpe 0.8 but std 0.6 may be in a great regime currently and terrible in others. (5) **Path-by-path OOS Sharpe vs. regime label** — I overlay the OOS Sharpe on each path against the regime classification for that period. This tells me which regimes the signal works in and which it fails in."
+
+---
+
+<a name="q32"></a>
+### Q32. How do you handle the multiple testing problem in a 30+ signal library?
+
+**The problem quantified:**
+
+If you test $M$ strategies and apply a significance threshold of $p < 0.05$:
+- Expected false discoveries: $M \times 0.05$
+- For $M = 100$: expect 5 false discoveries even if all strategies are noise
+
+**Solutions:**
+
+**1. Bonferroni correction:** Adjusted threshold $\alpha^* = \alpha / M$. Very conservative; suitable when testing independent hypotheses.
+
+**2. Benjamini-Hochberg FDR control:**
+Sort $p$-values: $p_{(1)} \leq p_{(2)} \leq \ldots \leq p_{(M)}$. Reject all hypotheses up to $k^*$ where:
+$$k^* = \max_k \left\{k : p_{(k)} \leq \frac{k \alpha}{M}\right\}$$
+Controls expected FDR at $\alpha$. Less conservative than Bonferroni. Use when: testing many strategies where some fraction are expected to be true.
+
+**3. Deflated Sharpe Ratio (López de Prado):**
+$$\text{DSR} = \hat{S} \cdot \Phi\left(\frac{(\hat{S} - \overline{S^*}) \sqrt{T-1}}{\sqrt{1 - \hat{\gamma}_3 \hat{S} + \frac{\hat{\gamma}_4 - 1}{4}\hat{S}^2}}\right)$$
+
+where $\hat{\gamma}_3$ is the Sharpe ratio skewness and $\hat{\gamma}_4$ is the Sharpe kurtosis. The DSR adjusts the Sharpe for skewness, kurtosis, and the number of trials tested.
+
+**My discipline:** I maintain a research log that records every strategy tested, including negative results. This log provides the $M$ count for DSR and FDR calculations. A strategy that's tested 10 times with different parameters counts as 10 trials.
+
+---
+
+**Follow-up 1:** *"Why is maintaining a log of all tested strategies important from a scientific and regulatory perspective?"*
+
+**Answer:** "Scientifically: without the log, you lose track of $M$ — the effective number of trials. If you tested 500 variations before finding the one that 'worked,' your DSR-adjusted Sharpe may be near zero even if the raw Sharpe looks attractive. With the log, you have an honest count of the search cost. Regulatorily: under the SEC's recent scrutiny of backtesting practices and the proposed rules on AI use in investment advice, maintaining a documented audit trail of research decisions is increasingly important. If a regulator asks 'how many strategies did you test before deploying this one?', you need to be able to answer honestly. The log also protects you internally — if a signal fails live, the log shows whether the failure was within the expected CPCV confidence interval (acceptable) or a genuine anomaly (requires investigation)."
+
+---
+
+**Follow-up 2:** *"How do you prevent a team culture where researchers only report positive results?"*
+
+**Answer:** "This is a cultural problem that must be solved structurally, not just through incentives. Three practices: (1) **Mandatory negative result documentation** — every research sprint concludes with a write-up, regardless of outcome. Negative results are explicitly valued as they prevent colleagues from rediscovering dead ends. (2) **Pre-registration of hypotheses** — before running a test, the researcher documents the hypothesis, the test design, and the success criterion. This prevents post-hoc rationalization of results. (3) **Blind evaluation of signals** — where feasible, I anonymize the signal's in-sample performance before presenting it to the committee, requiring the decision to deploy be based on theoretical merit and OOS evidence rather than in-sample Sharpe. This is standard in clinical trials; it's uncommon in quant finance but dramatically reduces motivated reasoning."
+
+---
+
+## SECTION VI — CODING & IMPLEMENTATION
+
+---
+
+<a name="q33"></a>
+### Q33. Write a Python TCA pipeline that identifies slippage drivers.
+
+**Full Production-Grade Python 3.13 TCA Pipeline (Google Style Guide):**
+
+```python
+"""Transaction Cost Analysis (TCA) pipeline for systematic strategies.
+
+Identifies slippage drivers by regressing implementation shortfall
+against market conditions, trade characteristics, and venue data.
+
+Follows Google Python Style Guide.
+Author: Shaikat Majumdar
+"""
+
+from __future__ import annotations
+
+import warnings
+from dataclasses import dataclass, field
+from typing import Optional
+
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+from scipy import stats
+
+
+@dataclass
+class TradeRecord:
+    """Single trade record for TCA computation.
+
+    Attributes:
+        trade_id: Unique identifier.
+        instrument: Instrument ticker.
+        timestamp: Execution timestamp.
+        side: 'buy' or 'sell'.
+        quantity: Number of contracts/shares.
+        executed_price: Actual execution price.
+        arrival_price: Mid-price at order arrival.
+        vwap: Volume-weighted average price over the interval.
+        volatility_at_arrival: Realized vol at arrival (annualized).
+        adv: Average daily volume in contracts.
+        venue: Execution venue.
+    """
+
+    trade_id: str
+    instrument: str
+    timestamp: pd.Timestamp
+    side: str
+    quantity: float
+    executed_price: float
+    arrival_price: float
+    vwap: float
+    volatility_at_arrival: float
+    adv: float
+    venue: str
+
+
+@dataclass
+class TCAResult:
+    """Aggregated TCA metrics.
+
+    Attributes:
+        implementation_shortfall_bps: IS in basis points.
+        vwap_slippage_bps: Slippage vs VWAP in bps.
+        arrival_slippage_bps: Slippage vs arrival price in bps.
+        participation_rate: Trade size / ADV.
+        slippage_decomposition: Attribution to drivers.
+    """
+
+    implementation_shortfall_bps: float
+    vwap_slippage_bps: float
+    arrival_slippage_bps: float
+    participation_rate: float
+    slippage_decomposition: dict[str, float] = field(default_factory=dict)
+
+
+class TCAPipeline:
+    """Transaction cost analysis pipeline.
+
+    Computes IS, VWAP slippage, and Arrival Price slippage,
+    then regresses slippage against drivers to identify
+    the top sources of transaction cost.
+
+    Example usage:
+        pipeline = TCAPipeline(trades_df)
+        summary = pipeline.run()
+        report = pipeline.generate_report(summary)
+    """
+
+    # Basis point scaling
+    _BPS_SCALE: float = 10_000.0
+
+    def __init__(self, trades: pd.DataFrame) -> None:
+        """Initialize with trade records DataFrame.
+
+        Args:
+            trades: DataFrame with columns matching TradeRecord fields.
+
+        Raises:
+            ValueError: If required columns are missing.
+        """
+        required_cols = {
+            "trade_id", "instrument", "timestamp", "side",
+            "quantity", "executed_price", "arrival_price",
+            "vwap", "volatility_at_arrival", "adv", "venue",
+        }
+        missing = required_cols - set(trades.columns)
+        if missing:
+            raise ValueError(f"Missing columns: {missing}")
+        self._trades = trades.copy()
+        self._trades["timestamp"] = pd.to_datetime(self._trades["timestamp"])
+        self._trades = self._trades.sort_values("timestamp").reset_index(drop=True)
+
+    def _compute_slippage(self) -> pd.DataFrame:
+        """Compute per-trade slippage metrics.
+
+        Returns:
+            DataFrame with IS, VWAP slippage, and Arrival slippage in bps.
+
+        Time Complexity: O(N) where N = number of trades.
+        Space Complexity: O(N).
+        """
+        df = self._trades.copy()
+        # Sign convention: positive IS = cost (buy higher, sell lower than benchmark)
+        sign = np.where(df["side"] == "buy", 1.0, -1.0)
+
+        df["is_bps"] = (
+            sign * (df["executed_price"] - df["arrival_price"]) /
+            df["arrival_price"] * self._BPS_SCALE
+        )
+        df["vwap_slippage_bps"] = (
+            sign * (df["executed_price"] - df["vwap"]) /
+            df["vwap"] * self._BPS_SCALE
+        )
+        df["arrival_slippage_bps"] = (
+            sign * (df["executed_price"] - df["arrival_price"]) /
+            df["arrival_price"] * self._BPS_SCALE
+        )
+        # Participation rate
+        df["participation"] = df["quantity"] / df["adv"]
+        # Time of day feature (fraction of session elapsed)
+        df["hour"] = df["timestamp"].dt.hour
+        df["session_fraction"] = (df["hour"] - 9) / 6.5  # 9:30am-4pm session
+        df["session_fraction"] = df["session_fraction"].clip(0, 1)
+        return df
+
+    def run_slippage_regression(
+        self,
+        df: pd.DataFrame,
+        dependent_var: str = "is_bps",
+    ) -> sm.regression.linear_model.RegressionResultsWrapper:
+        """Regress slippage on drivers to identify top contributors.
+
+        Drivers:
+            - vol_scaled_participation: Market impact proxy (Almgren-Chriss inspired)
+            - volatility_at_arrival: Higher vol → higher slippage
+            - session_fraction: Time of day effect
+            - log_quantity: Order size effect
+
+        Args:
+            df: DataFrame with computed slippage features.
+            dependent_var: Slippage variable to explain.
+
+        Returns:
+            OLS regression results with robust standard errors.
+
+        Time Complexity: O(N * K^2) where K = number of features.
+        Space Complexity: O(N * K).
+        """
+        # Feature engineering
+        df = df.copy()
+        df["vol_scaled_participation"] = (
+            df["participation"] * df["volatility_at_arrival"]
+        )
+        df["log_quantity"] = np.log1p(df["quantity"])
+        df["is_high_vol"] = (df["volatility_at_arrival"] > df["volatility_at_arrival"].median()).astype(int)
+
+        feature_cols = [
+            "vol_scaled_participation",
+            "volatility_at_arrival",
+            "session_fraction",
+            "log_quantity",
+            "is_high_vol",
+        ]
+        X = df[feature_cols].dropna()
+        y = df.loc[X.index, dependent_var]
+        X_with_const = sm.add_constant(X)
+        # HAC-robust standard errors for autocorrelation
+        model = sm.OLS(y, X_with_const)
+        results = model.fit(cov_type="HAC", cov_kwds={"maxlags": 5})
+        return results
+
+    def generate_report(self, df: pd.DataFrame) -> str:
+        """Generate desk-ready TCA report.
+
+        Args:
+            df: Enriched trade DataFrame with slippage metrics.
+
+        Returns:
+            Formatted string report.
+        """
+        results = self.run_slippage_regression(df)
+        lines = [
+            "=" * 60,
+            "TCA PIPELINE — SLIPPAGE ANALYSIS REPORT",
+            "=" * 60,
+            f"\nTotal trades analyzed: {len(df):,}",
+            f"Date range: {df['timestamp'].min().date()} to {df['timestamp'].max().date()}",
+            "\n--- AGGREGATE SLIPPAGE (bps) ---",
+            f"  Implementation Shortfall (IS):  {df['is_bps'].mean():.2f} ± {df['is_bps'].std():.2f}",
+            f"  VWAP Slippage:                  {df['vwap_slippage_bps'].mean():.2f} ± {df['vwap_slippage_bps'].std():.2f}",
+            f"  Arrival Slippage:               {df['arrival_slippage_bps'].mean():.2f} ± {df['arrival_slippage_bps'].std():.2f}",
+            "\n--- SLIPPAGE BY INSTRUMENT ---",
+        ]
+        by_instrument = (
+            df.groupby("instrument")["is_bps"]
+            .agg(["mean", "std", "count"])
+            .sort_values("mean", ascending=False)
+        )
+        lines.append(by_instrument.to_string())
+        lines += [
+            "\n--- SLIPPAGE BY VENUE ---",
+            df.groupby("venue")["is_bps"].mean().sort_values(ascending=False).to_string(),
+            "\n--- SLIPPAGE DRIVER REGRESSION ---",
+            results.summary().as_text(),
+        ]
+        # Top driver by t-statistic
+        tstat = results.tvalues.drop("const").abs()
+        top_driver = tstat.idxmax()
+        lines += [
+            f"\n>>> TOP SLIPPAGE DRIVER: {top_driver} (|t| = {tstat[top_driver]:.2f})",
+            "=" * 60,
+        ]
+        return "\n".join(lines)
+
+    def run(self) -> pd.DataFrame:
+        """Execute the full TCA pipeline.
+
+        Returns:
+            Enriched DataFrame with all slippage metrics and features.
+        """
+        df = self._compute_slippage()
+        return df
+```
+
+**Time complexity:** `_compute_slippage` is O(N); `run_slippage_regression` is O(N × K²) due to OLS normal equations. Total O(N × K²) but K is small (≤ 10 features), so effectively O(N).  
+**Space complexity:** O(N × K) for the feature matrix.
+
+---
+
+**Follow-up 1 (from MIO prep doc):** *"You see higher-than-expected slippage in the first 30 minutes of a session. Diagnose the source, test your hypotheses, and propose an algo modification."*
+
+**Answer:**
+
+"**Step 1 — Data segmentation:** Filter the TCA data to the first 30 minutes (09:30–10:00 ET) and compare IS bps vs. the rest of the session. Confirm the difference is statistically significant (t-test with HAC correction).
+
+**Step 2 — Hypothesis generation:** Three most likely causes: (a) Informed flow / adverse selection — the opening period has concentrated informed order flow from overnight news digestion; (b) Liquidity trough — bid-ask spreads are widest in the first 15 minutes as market makers calibrate their quotes; (c) Our participation rate is too high — if we're trying to execute a large portion of a daily order in the first 30 minutes, market impact is amplified.
+
+**Step 3 — Testing each hypothesis:**
+- (a) Adverse selection: Compute markouts — what is the return of the traded instrument 5, 15, 60 minutes after our trade? High markouts = we were on the wrong side = adverse selection. 
+- (b) Liquidity: Compare our slippage to the bid-ask spread. If IS / spread > 0.5, we're above the spread-crossing component alone — market impact is the driver.
+- (c) Participation: Regress IS on participation rate in the opening period vs. rest of day. Steeper slope in opening = impact is more sensitive to participation in opening.
+
+**Step 4 — Algo modification (based on findings):**
+- If adverse selection: delay the start of execution by 15 minutes (let overnight information fully incorporate). Reduces IS by 30-40% based on similar experience at Highbridge.
+- If liquidity: reduce participation rate target for opening period from 20% to 5% of ADV, spread execution from 09:45 onwards.
+- If simply participation: implement a VWAP schedule that underweights the opening period — use a U-shaped volume curve shifted right to reduce the opening period's allocation."
+
+---
+
+**Follow-up 2 (from MIO prep doc):** *"Build a Python TCA pipeline that produces a desk-ready report."*
+
+**Answer:** The pipeline above (`TCAPipeline.generate_report()`) is exactly that. Additional features I'd add for a desk-ready report: (1) Bootstrap confidence intervals on mean IS by segment; (2) Time-series chart of rolling 21-day mean IS to detect regime changes in execution quality; (3) Marginal cost attribution (what fraction of total cost is spread vs. market impact vs. timing); (4) Venue ranking with statistical significance testing.
+
+---
+
+<a name="q34"></a>
+### Q34. Build a volume forecasting model for a thinly traded commodity futures contract.
+
+**Challenge context:** For thinly traded contracts (e.g., lean hogs, feeder cattle, natural gas basis futures), there may be:
+- Fewer than 1,000 traded days of reliable data
+- Highly seasonal and regime-dependent volume patterns
+- Gaps on low-volume days with zero trades in some intervals
+
+**Multi-model approach:**
+
+**Model 1: Seasonality baseline (STL decomposition)**
+Decompose historical daily volume into Trend + Seasonal + Residual using STL (Seasonal-Trend decomposition via LOESS). The seasonal component captures day-of-week and month-of-year effects.
+
+**Model 2: Proxy-augmented regression**
+For thinly traded contracts, use highly correlated liquid contracts as volume proxies:
+- Lean hogs ← Pork belly futures, live cattle (correlation 0.7+)
+- Natural gas basis ← Henry Hub front month (same underlying)
+- Agricultural ← ADV of related contracts × seasonal weight
+
+**Model 3: HAR-V (Heterogeneous Autoregressive Volume)**
+Analogous to HAR-RV for volatility:
+
+$$\ln V_{t+1} = c + \beta_d \ln V_t^{(d)} + \beta_w \ln V_t^{(w)} + \beta_m \ln V_t^{(m)} + \epsilon_{t+1}$$
+
+Log-volume is more stationary than raw volume.
+
+**Python 3.13 Implementation:**
+
+```python
+"""Volume forecasting for thinly traded commodity futures.
+
+Uses HAR-V with proxy augmentation and seasonality adjustment.
+Follows Google Python Style Guide.
+"""
+
+from __future__ import annotations
+
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+from dataclasses import dataclass
+from sklearn.metrics import mean_absolute_percentage_error
+from sklearn.model_selection import TimeSeriesSplit
+
+
+@dataclass
+class HARVolumeForecaster:
+    """HAR-V volume forecasting model.
+
+    Heterogeneous Autoregressive model applied to log-volume,
+    augmented with seasonal dummies and liquid proxy volume.
+
+    Attributes:
+        daily_lag: Lag for daily component.
+        weekly_lag: Lag for weekly average component.
+        monthly_lag: Lag for monthly average component.
+        use_log: Whether to model log-volume (recommended).
+    """
+
+    daily_lag: int = 1
+    weekly_lag: int = 5
+    monthly_lag: int = 21
+    use_log: bool = True
+
+    def _build_features(
+        self,
+        volume: pd.Series,
+        proxy_volume: Optional[pd.Series] = None,
+    ) -> pd.DataFrame:
+        """Construct HAR features with seasonality dummies.
+
+        Args:
+            volume: Daily volume series for the target contract.
+            proxy_volume: Optional volume of a correlated liquid contract.
+
+        Returns:
+            Feature DataFrame with HAR lags and seasonal dummies.
+
+        Time Complexity: O(N) for lag construction.
+        Space Complexity: O(N * K) where K = number of features.
+        """
+        v = np.log1p(volume) if self.use_log else volume
+        features = pd.DataFrame(index=v.index)
+        # HAR lags
+        features["v_d"] = v.shift(self.daily_lag)
+        features["v_w"] = v.rolling(self.weekly_lag).mean().shift(1)
+        features["v_m"] = v.rolling(self.monthly_lag).mean().shift(1)
+        # Seasonal: day-of-week dummies (Monday=0)
+        dummies = pd.get_dummies(
+            v.index.dayofweek, prefix="dow", drop_first=True
+        )
+        dummies.index = v.index
+        features = features.join(dummies)
+        # Month-end effect
+        features["is_month_end"] = (
+            v.index == v.index.to_period("M").to_timestamp("M")
+        ).astype(int)
+        # Proxy volume
+        if proxy_volume is not None:
+            proxy = np.log1p(proxy_volume) if self.use_log else proxy_volume
+            features["proxy_v"] = proxy.shift(1)
+        return features.dropna()
+
+    def fit_evaluate(
+        self,
+        volume: pd.Series,
+        proxy_volume: Optional[pd.Series] = None,
+        n_splits: int = 5,
+    ) -> tuple[sm.OLS, float]:
+        """Fit model with walk-forward CV and return final model.
+
+        Args:
+            volume: Target volume series.
+            proxy_volume: Optional liquid proxy volume.
+            n_splits: Walk-forward CV splits.
+
+        Returns:
+            Tuple of (final fitted model, mean OOS MAPE).
+
+        Time Complexity: O(N * n_splits) for CV.
+        Space Complexity: O(N * K).
+        """
+        features = self._build_features(volume, proxy_volume)
+        y = np.log1p(volume.loc[features.index]) if self.use_log else volume.loc[features.index]
+        X = sm.add_constant(features)
+        tscv = TimeSeriesSplit(n_splits=n_splits, gap=5)  # 5-day gap
+        oos_mapes = []
+        for train_idx, test_idx in tscv.split(X):
+            x_train, x_test = X.iloc[train_idx], X.iloc[test_idx]
+            y_train, y_test = y.iloc[train_idx], y.iloc[test_idx]
+            model = sm.OLS(y_train, x_train).fit()
+            y_pred = model.predict(x_test)
+            # Invert log transform for MAPE computation
+            oos_mapes.append(
+                mean_absolute_percentage_error(
+                    np.expm1(y_test), np.expm1(y_pred)
+                )
+            )
+        print(f"OOS MAPE: {np.mean(oos_mapes):.1%} ± {np.std(oos_mapes):.1%}")
+        # Final model on full data
+        final_model = sm.OLS(y, X).fit()
+        return final_model, float(np.mean(oos_mapes))
+```
+
+**C++26 HAR-V Forecast Engine:**
+
+```cpp
+// har_volume_forecaster.h
+// HAR-V model for commodity futures volume forecasting.
+// C++26, Google C++ Style Guide.
+
+#pragma once
+
+#include <array>
+#include <cmath>
+#include <numeric>
+#include <span>
+#include <vector>
+
+namespace gcm::execution {
+
+/// HAR-V volume forecasting parameters.
+struct HARVConfig {
+  int daily_lag = 1;
+  int weekly_lag = 5;
+  int monthly_lag = 21;
+  bool use_log_volume = true;
+};
+
+/// HAR-V volume forecaster (inference only; training done in Python).
+/// Takes pre-fitted OLS coefficients and applies them in O(1) per step.
+class HARVForecaster {
+ public:
+  /// Constructor.
+  /// @param config  HAR-V configuration.
+  /// @param betas   Fitted [const, v_d, v_w, v_m] coefficients.
+  explicit HARVForecaster(
+      HARVConfig config,
+      std::array<double, 4> betas) noexcept
+      : config_(config), betas_(betas) {}
+
+  /// Forecast next-day volume from recent history.
+  /// @param history  Recent daily volumes (oldest first), length >= 21.
+  /// @returns        Point forecast of next-day volume.
+  /// Time:  O(monthly_lag) = O(21) = O(1) amortized.
+  /// Space: O(1).
+  [[nodiscard]] double Forecast(
+      std::span<const double> history) const noexcept {
+    if (history.size() < static_cast<size_t>(config_.monthly_lag)) return 0.0;
+    const auto n = static_cast<int>(history.size());
+    auto log_v = [this](double v) -> double {
+      return config_.use_log_volume ? std::log1p(v) : v;
+    };
+    const double v_d = log_v(history[n - 1]);
+    const double v_w = AverageLast(history, config_.weekly_lag, log_v);
+    const double v_m = AverageLast(history, config_.monthly_lag, log_v);
+    const double log_forecast =
+        betas_[0] + betas_[1] * v_d + betas_[2] * v_w + betas_[3] * v_m;
+    return config_.use_log_volume ? std::expm1(log_forecast) : log_forecast;
+  }
+
+ private:
+  template <typename Func>
+  static double AverageLast(
+      std::span<const double> data, int n, Func transform) noexcept {
+    const int start = static_cast<int>(data.size()) - n;
+    double sum = 0.0;
+    for (int i = start; i < static_cast<int>(data.size()); ++i) {
+      sum += transform(data[i]);
+    }
+    return sum / n;
+  }
+
+  HARVConfig config_;
+  std::array<double, 4> betas_;
+};
+
+}  // namespace gcm::execution
+```
+
+**Time complexity:** Inference is O(monthly_lag) = O(21) = O(1) amortized per step. Training in Python is O(N × K²).  
+**Space complexity:** O(N × K) for the training feature matrix; O(1) for C++ inference.
+
+---
+
+**Follow-up 1 (from MIO prep doc):** *"Build a volume forecasting model for a thinly traded commodity futures contract with sparse intraday history. What proxies do you use? How do you validate out of sample?"*
+
+**Answer:** "For a contract like lean hogs with 200-300 traded lots per day, I use the following proxy strategy: (1) **Same-sector liquid contract** — live cattle for lean hogs, crude oil front month for basis contracts. Proxy volume explains 40-60% of variation in thin contract volume. (2) **Roll calendar** — volume in the front-month contract follows a predictable roll pattern. I model the roll-induced volume spike explicitly with a calendar dummy. (3) **Open interest** — changes in open interest predict near-term volume changes, especially around roll dates. (4) **Market regime** — VIX and commodity volatility predict volume spikes in commodity markets. OOS validation: I hold out the most recent 24 months as the test set, never touching it during development. I validate MAPE against three baselines: (a) naive seasonal average, (b) ARIMA, (c) HAR-V without proxy. The proxy-augmented HAR-V should beat all three baselines by a meaningful margin (> 5% MAPE improvement) to justify the additional complexity."
+
+---
+
+**Follow-up 2:** *"How does your volume forecast feed into execution algorithm design?"*
+
+**Answer:** "Three ways. First: **VWAP schedule construction** — the VWAP schedule allocates trading throughout the day proportional to the expected volume in each time bucket. My volume forecast gives the shape of the intraday volume curve; the VWAP schedule is simply the cumulative distribution of this forecast. Second: **Participation rate cap** — if my forecast says volume will be thin in a given window (< 10% of ADV), I cap our participation at 2% to avoid moving the market. Third: **Timing optimization** — given my volume forecast and a market impact model, I solve the optimal trade schedule using the Almgren-Chriss framework to minimize expected total implementation cost (market impact × time exposure). The forecast input to A-C is the daily volume curve; better volume forecasts directly reduce expected execution cost."
+
+---
+
+<a name="q35"></a>
+### Q35. Implement a production-grade EWMA trend signal in C++26.
+
+*(See Q9 for the full C++26 EWMA implementation. Below is the enhanced production version with Mechanical Sympathy principles.)*
+
+```cpp
+// production_trend_signal.h
+// Production-grade EWMA trend signal engine.
+// C++26, Google C++ Style Guide.
+// Optimized for cache efficiency and SIMD-friendly memory layout.
+
+#pragma once
+
+#include <algorithm>
+#include <array>
+#include <cmath>
+#include <concepts>
+#include <numeric>
+#include <span>
+#include <vector>
+
+namespace gcm::signals {
+
+/// Production trend signal with multi-lookback ensemble.
+/// Memory layout: Structure of Arrays (SoA) for SIMD-friendly iteration.
+class ProductionEWMATrendSignal {
+ public:
+  /// Number of EWMA pairs in the ensemble.
+  static constexpr int kNumPairs = 8;
+
+  /// Pre-computed fast/slow span pairs (log-spaced from 8 to 256 days).
+  static constexpr std::array<std::pair<int, int>, kNumPairs> kSpanPairs{{
+      {8, 24}, {16, 48}, {24, 72}, {32, 96},
+      {48, 144}, {64, 192}, {96, 256}, {128, 384},
+  }};
+
+  explicit ProductionEWMATrendSignal(
+      double target_vol = 0.15,
+      int vol_lookback = 60) noexcept
+      : target_vol_(target_vol),
+        vol_lookback_(vol_lookback) {
+    // Pre-compute decay factors for all pairs
+    for (int i = 0; i < kNumPairs; ++i) {
+      alpha_fast_[i] = 2.0 / (kSpanPairs[i].first + 1);
+      alpha_slow_[i] = 2.0 / (kSpanPairs[i].second + 1);
+    }
+  }
+
+  /// Compute ensemble-averaged, vol-scaled trend signal.
+  /// All k EWMA pairs are updated in a single O(N) pass.
+  /// Uses Structure-of-Arrays layout to minimize cache pressure.
+  ///
+  /// @param prices  Price span (oldest first).
+  /// @returns       Ensemble signal clipped to [-3, 3].
+  ///
+  /// Time:  O(N * kNumPairs) = O(8N) ≈ O(N).
+  /// Space: O(N + kNumPairs) = O(N).
+  [[nodiscard]] std::vector<double> Compute(
+      std::span<const double> prices) const noexcept {
+    const auto n = static_cast<int>(prices.size());
+    std::vector<double> signal(n, 0.0);
+
+    // Pre-compute log returns
+    std::vector<double> log_rets(n, 0.0);
+    for (int i = 1; i < n; ++i) {
+      log_rets[i] = std::log(prices[i] / prices[i - 1]);
+    }
+
+    // SoA: separate arrays for fast and slow EWMA state (cache-friendly)
+    alignas(64) std::array<double, kNumPairs> fast_state{};
+    alignas(64) std::array<double, kNumPairs> slow_state{};
+    fast_state.fill(log_rets[1]);
+    slow_state.fill(log_rets[1]);
+
+    double sum_sq_ret = 0.0;
+    int vol_count = 0;
+
+    for (int t = 1; t < n; ++t) {
+      const double r = log_rets[t];
+
+      // Update all EWMA pairs (vectorizable loop)
+      for (int k = 0; k < kNumPairs; ++k) {
+        fast_state[k] = alpha_fast_[k] * r + (1.0 - alpha_fast_[k]) * fast_state[k];
+        slow_state[k] = alpha_slow_[k] * r + (1.0 - alpha_slow_[k]) * slow_state[k];
+      }
+
+      // Welford-style rolling variance for vol estimate
+      if (t >= n - vol_lookback_) {
+        sum_sq_ret += r * r;
+        ++vol_count;
+      }
+
+      if (t >= kSpanPairs.back().second && vol_count > 0) {
+        const double realized_vol = std::sqrt(sum_sq_ret / vol_count * 252.0);
+        if (realized_vol > 1e-8) {
+          double ensemble_raw = 0.0;
+          for (int k = 0; k < kNumPairs; ++k) {
+            ensemble_raw += (fast_state[k] - slow_state[k]);
+          }
+          ensemble_raw /= kNumPairs;
+          signal[t] = std::clamp(
+              ensemble_raw / realized_vol, -3.0, 3.0);
+        }
+      }
+    }
+    return signal;
+  }
+
+ private:
+  alignas(64) std::array<double, kNumPairs> alpha_fast_{};
+  alignas(64) std::array<double, kNumPairs> alpha_slow_{};
+  double target_vol_;
+  int vol_lookback_;
+};
+
+}  // namespace gcm::signals
+```
+
+**Key engineering decisions:**
+- `alignas(64)`: aligns state arrays to cache line boundaries, enabling SIMD auto-vectorization
+- SoA layout (separate arrays for fast/slow): CPU can vectorize the inner `k` loop using SIMD (AVX2 processes 4 doubles simultaneously)
+- Single pass through data: O(N) time, excellent cache locality
+- `[[nodiscard]]`: compile-time enforcement that the return value is used
+
+**Time complexity:** O(N × kNumPairs) where kNumPairs = 8 (constant). Effectively O(N).  
+**Space complexity:** O(N) for output signal + O(N) for log-returns buffer + O(kNumPairs) = O(N).
+
+---
+
+**Follow-up 1:** *"Explain Mechanical Sympathy and how it applies to your C++ signal engines."*
+
+**Answer:** "Mechanical Sympathy is Martin Thompson's principle of designing software with awareness of the hardware it runs on. The CPU's performance is dominated by memory access patterns — a cache miss is 100-300× more expensive than a cache hit. Key applications in signal engines: (1) **Structure-of-Arrays over Array-of-Structures**: storing `fast_state[k]` and `slow_state[k]` as separate contiguous arrays means the inner loop accesses memory sequentially — hardware prefetcher can predict and load the next cache line ahead of time. An AoS layout (`State[k].fast, State[k].slow`) interleaves data and is less prefetcher-friendly. (2) **Alignment to cache lines** (`alignas(64)`): ensures that the 8-element double array (8 × 8 = 64 bytes) maps exactly to one cache line, preventing false sharing. (3) **Single-pass computation**: the O(N) single pass through `log_rets` maximizes cache reuse — the hot cache contains only the current element and state arrays."
+
+---
+
+**Follow-up 2:** *"How would you extend this signal engine to handle real-time tick data feed?"*
+
+**Answer:** "For real-time processing, I'd restructure as an incremental update model rather than a batch computation. The `Compute` method above processes the full history each time — fine for end-of-day batch, wrong for real-time. I'd add an `Update(double new_price)` method that: (1) computes the new log return from the last known price; (2) updates all EWMA states with one multiply-add operation per pair; (3) updates the rolling variance via Welford's algorithm (adding the new squared return, dropping the oldest); (4) returns the new signal value. This is O(kNumPairs) = O(1) per tick. I'd also add thread safety via `std::atomic` for the state variables if multiple threads are reading/writing (e.g., a separate risk monitoring thread). For the lowest possible latency path, I'd use lock-free ring buffers (SPSC queue) between the market data feed and the signal computation thread."
+
+---
+
+<a name="q36"></a>
+### Q36. Outline a rigorous backtesting framework in Python with CPCV.
+
+```python
+"""Rigorous backtesting framework with CPCV.
+
+Implements Combinatorial Purged Cross-Validation following
+López de Prado (2018) for unbiased OOS performance estimation.
+
+Follows Google Python Style Guide.
+"""
+
+from __future__ import annotations
+
+import itertools
+from dataclasses import dataclass, field
+from typing import Callable, Optional
+
+import numpy as np
+import pandas as pd
+from scipy.stats import ttest_1samp
+
+
+@dataclass
+class CPCVResult:
+    """Results from a CPCV backtest run.
+
+    Attributes:
+        oos_sharpes: Per-path OOS Sharpe ratios.
+        mean_sharpe: Mean across paths.
+        p10_sharpe: 10th percentile (bear-case).
+        deflated_sharpe: Haircut Sharpe accounting for selection bias.
+        fraction_positive: Fraction of paths with positive Sharpe.
+    """
+
+    oos_sharpes: list[float]
+    mean_sharpe: float = field(init=False)
+    p10_sharpe: float = field(init=False)
+    deflated_sharpe: float = field(init=False)
+    fraction_positive: float = field(init=False)
+
+    def __post_init__(self) -> None:
+        arr = np.array(self.oos_sharpes)
+        self.mean_sharpe = float(arr.mean())
+        self.p10_sharpe = float(np.percentile(arr, 10))
+        self.fraction_positive = float((arr > 0).mean())
+        # Deflated Sharpe: penalize for max expected SR under null
+        # (simplified version; full formula requires skew/kurt adjustments)
+        n_trials_approx = len(arr)
+        if n_trials_approx > 1:
+            max_expected_null = arr.std() * np.sqrt(2 * np.log(n_trials_approx))
+            sr_std = arr.std() / np.sqrt(len(arr))
+            from scipy.stats import norm
+            self.deflated_sharpe = float(
+                norm.cdf((self.mean_sharpe - max_expected_null) / (sr_std + 1e-8))
+            )
+        else:
+            self.deflated_sharpe = self.mean_sharpe
+
+
+class CPCVBacktester:
+    """Combinatorial Purged Cross-Validation backtesting engine.
+
+    Generates N-choose-k combinatorial OOS paths with purging
+    and embargo to produce an unbiased distribution of OOS Sharpes.
+
+    Example:
+        def my_strategy(prices, params):
+            # Return daily returns series
+            ...
+
+        backtester = CPCVBacktester(
+            prices=prices_df,
+            strategy_fn=my_strategy,
+            params={"fast": 32, "slow": 128},
+            n_groups=10,
+            n_test_groups=2,
+            embargo_days=20,
+        )
+        result = backtester.run()
+        print(f"Mean OOS Sharpe: {result.mean_sharpe:.2f}")
+        print(f"10th pct Sharpe: {result.p10_sharpe:.2f}")
+    """
+
+    def __init__(
+        self,
+        prices: pd.DataFrame,
+        strategy_fn: Callable[[pd.DataFrame, dict], pd.Series],
+        params: dict,
+        n_groups: int = 10,
+        n_test_groups: int = 2,
+        embargo_days: int = 20,
+        risk_free_rate: float = 0.0,
+    ) -> None:
+        """Initialize the CPCV backtester.
+
+        Args:
+            prices: Price DataFrame (rows = dates, cols = instruments).
+            strategy_fn: Callable(prices, params) -> daily returns Series.
+            params: Strategy parameters dict.
+            n_groups: Number of groups to split data into (N in N-choose-k).
+            n_test_groups: Number of groups in each test set (k in N-choose-k).
+            embargo_days: Calendar days to exclude around test boundaries.
+            risk_free_rate: Annualized risk-free rate for Sharpe calculation.
+
+        Time Complexity: O(C(n_groups, n_test_groups) * T) per run.
+        Space Complexity: O(T) per path.
+        """
+        self._prices = prices
+        self._strategy_fn = strategy_fn
+        self._params = params
+        self._n_groups = n_groups
+        self._n_test_groups = n_test_groups
+        self._embargo_days = embargo_days
+        self._rf = risk_free_rate
+        # Assign group labels to each date
+        n_obs = len(prices)
+        self._group_labels = pd.Series(
+            np.floor(np.arange(n_obs) / n_obs * n_groups).astype(int),
+            index=prices.index,
+        ).clip(0, n_groups - 1)
+
+    def _get_train_test_indices(
+        self,
+        test_groups: tuple[int, ...],
+    ) -> tuple[pd.Index, pd.Index]:
+        """Get purged training and test indices for a given test group set.
+
+        Args:
+            test_groups: Tuple of group indices forming the test set.
+
+        Returns:
+            (train_index, test_index) with embargo applied.
+        """
+        test_mask = self._group_labels.isin(test_groups)
+        test_index = self._prices.index[test_mask]
+
+        # Embargo: find dates within embargo_days of test boundaries
+        embargo_mask = pd.Series(False, index=self._prices.index)
+        for test_date in test_index:
+            delta = abs((self._prices.index - test_date).days)
+            embargo_mask |= pd.Series(delta <= self._embargo_days, index=self._prices.index)
+
+        train_mask = ~test_mask & ~embargo_mask
+        train_index = self._prices.index[train_mask]
+        return train_index, test_index
+
+    def _compute_sharpe(self, returns: pd.Series) -> float:
+        """Compute annualized Sharpe ratio.
+
+        Args:
+            returns: Daily return series.
+
+        Returns:
+            Annualized Sharpe ratio. Returns 0 if too few observations.
+        """
+        if len(returns) < 20:
+            return 0.0
+        excess = returns - self._rf / 252
+        return float(excess.mean() / excess.std() * np.sqrt(252)) if excess.std() > 0 else 0.0
+
+    def run(self) -> CPCVResult:
+        """Execute CPCV and return performance distribution.
+
+        Returns:
+            CPCVResult with distribution of OOS Sharpes.
+
+        Time Complexity: O(C(N,k) * T * strategy_complexity).
+        Space Complexity: O(T) per path (paths are not stored simultaneously).
+        """
+        all_combinations = list(
+            itertools.combinations(range(self._n_groups), self._n_test_groups)
+        )
+        oos_sharpes = []
+        for test_groups in all_combinations:
+            train_idx, test_idx = self._get_train_test_indices(test_groups)
+            if len(train_idx) < 252 or len(test_idx) < 20:
+                continue
+            # Fit strategy on training data
+            train_prices = self._prices.loc[train_idx]
+            oos_returns = self._strategy_fn(
+                self._prices.loc[test_idx], self._params
+            )
+            oos_sharpes.append(self._compute_sharpe(oos_returns))
+
+        return CPCVResult(oos_sharpes=oos_sharpes)
+```
+
+**Time complexity:** O($\binom{N}{k} \times T \times C_{\text{strategy}}$) where $C_{\text{strategy}}$ is the cost of `strategy_fn`. For N=10, k=2: 45 paths.  
+**Space complexity:** O(T) per path (paths not stored simultaneously).
+
+---
+
+**Follow-up 1:** *"How many CPCV paths do you need for a reliable distribution of OOS Sharpes?"*
+
+**Answer:** "The number of paths scales as $\binom{N}{k}$. I recommend: N = 10 groups, k = 2 → 45 paths. This gives a reasonable distribution estimate while keeping computational cost manageable. For very long strategies (> 20 years of daily data), I increase N to 20 and k to 3 → $\binom{20}{3} = 1,140$ paths, providing a very rich distribution. The minimum I'd accept: $\binom{6}{2} = 15$ paths. Below 10 paths, the distribution estimate is too noisy to be meaningful. The key insight: each path is an independent OOS estimate, so the standard error of the mean Sharpe is $\sigma_{\text{Sharpe}} / \sqrt{n_{\text{paths}}}$. With 45 paths and typical Sharpe std of 0.4, the std error of the mean is 0.06 — quite precise."
+
+---
+
+## SECTION VII — FIRM-SPECIFIC
+
+---
+
+<a name="q37"></a>
+### Q37. How does your research background align with Graham's carry/trend/macro/value framework?
+
+**Direct signal library mapping:**
+
+| Graham's Framework | My Experience | Specific Example |
+|-------------------|---------------|-----------------|
+| Trend-following | 14 years at Millburn; 30+ signals | EWMA multi-lookback ensemble; validated with CPCV |
+| Carry | FX and rates carry at Millburn and Balyasny | Cross-asset carry with crash-risk overlay; IRS carry modeling |
+| Quantitative Macro | Balyasny systematic macro pod; Millburn event-driven | Central bank NLP + regime classification; macro announcement models |
+| Value / Mean Reversion | PPP-based value signals at Millburn | Term structure value; commodity relative value |
+| NLP / Alternative Data | FinBERT/HMM at Balyasny; current focus | NLP hawkishness signals fed into HMM; satellite-based nowcasting |
+| Portfolio Construction | Full pod responsibility at Balyasny | Risk parity + vol targeting across FX/Commodities/FI |
+
+**What I add that is differentiated:**
+- NLP signal development (Antoine's domain — direct collaboration opportunity)
+- C++26 production-grade signal engine development (hot path optimization)
+- Adversarial robustness thinking from execution research (signals designed to survive crowding)
+- Full research-to-production lifecycle ownership
+
+---
+
+**Follow-up 1:** *"Graham's K4D strategy combines price-based and non-price-based models. What non-price signals have you built and how have they performed?"*
+
+**Answer:** "Three categories. First: **Central bank communication NLP** — FinBERT-based hawkishness scores for Fed and ECB, generating signals in front-end rates and FX. OOS Sharpe ~0.7 standalone, mostly orthogonal to price-based trend. Second: **Macro announcement surprise** — using Bloomberg consensus forecasts vs. actual releases for NFP, CPI, PMI. The surprise component (actual - consensus) normalized by historical surprise distribution generates event-driven signals in rates, FX, and equity futures. Third: **Shipping and trade flow** — AIS-derived vessel congestion at major EM ports as a leading indicator for EM FX and commodity futures. Still in research phase at Balyasny but early IC results are positive (IC ~ 0.04-0.06 over 5-day horizon)."
+
+---
+
+**Follow-up 2:** *"What is the biggest area where you think a quant macro signal library could be improved in 2026?"*
+
+**Answer:** "Two areas. First: **Real-time policy communication integration**. Central banks are becoming more communicative (more Fed speeches, more granular forward guidance), but most NLP pipelines still process only major statement documents. There's alpha in intraday processing of Fed governor speeches, ECB forum remarks, and Treasury press briefings — this requires near-real-time NLP with sub-1-minute latency. Second: **Cross-market information cascades**. A rate surprise in the US affects EM FX, which affects EM equity futures, which feeds back into commodity demand forecasts. Most signals treat these as independent, but the temporal propagation of information across asset classes follows predictable patterns. Building a directed information graph that models these cascades — essentially a structured multi-asset NLP signal — could significantly improve signal IC in the 5-30 minute post-announcement window."
+
+---
+
+<a name="q38"></a>
+### Q38. How would you approach improving an existing trend-following signal at Graham?
+
+**Structured improvement process:**
+
+**Phase 1: Diagnosis (weeks 1-4)**
+1. Obtain full signal history: signal value, position size, PnL attribution
+2. Decompose PnL by: asset class, regime, lookback component, time period
+3. Identify the 'failure modes': when does the signal systematically underperform?
+4. Compute rolling IC decay curve: is the signal decaying faster recently?
+
+**Phase 2: Targeted research (weeks 5-12)**
+Based on diagnosis findings, pursue one of three improvement paths:
+
+**Path A — Regime adaptation**
+If signal underperforms in choppy markets: add HMM-based regime classifier that down-weights trend exposure in detected choppy regimes.
+
+**Path B — Signal orthogonalization**  
+If signal is too correlated with existing carry exposure: decompose and orthogonalize via Gram-Schmidt.
+
+**Path C — Alternative data augmentation**
+If signal ICs are declining (suggesting crowding): add orthogonal information source (e.g., order flow, NLP sentiment) as a co-predictor.
+
+**Phase 3: CPCV validation (weeks 13-16)**
+Run full CPCV on proposed modification. Compare OOS Sharpe distribution: improved mean and narrower dispersion required for deployment.
+
+**Phase 4: Shadow mode deployment (weeks 17-20)**
+Run new signal in parallel with existing. Validate distributional assumptions hold in live data before replacing.
+
+---
+
+**Follow-up 1:** *"Trend following struggled in 2023-2024. What's your diagnosis and proposed fix?"*
+
+**Answer:** "The 2023-2024 challenge had three distinct causes. (1) **Frequent regime reversals** in equity indices — central bank pause-then-cut narrative repeatedly shifted, causing false trend signals in equity futures with high turnover and costs. Fix: add a higher-confidence regime filter (require trend signal to be confirmed by order flow signal before entering) to reduce false breakout trades. (2) **Compression of rate trend** — the 40-year bond bull market had been the primary trend-following alpha source in fixed income. Post-2022, the rate regime shifted to a 'higher for longer' oscillation without clear directional trend. Fix: reduce rates allocation in trend component, reallocate to commodities and FX where trend signals have been more reliable. (3) **Crowded unwinds** — CTAs exit simultaneously, generating adverse price impact. Fix: build a CTA crowding indicator (CFTC positioning + cross-fund correlation of returns) and reduce trend exposure when crowding is elevated."
+
+---
+
+<a name="q39"></a>
+### Q39. How would you build an NLP pipeline to extract macro signals from central bank communications?
+
+**Full Production Architecture:**
+
+```
+Data Sources                Processing Layer            Signal Layer
+──────────────────────      ──────────────────────      ──────────────
+Fed statements (FOMC)  ───▶ Text cleaning & parsing ──▶ Hawkishness score
+ECB communications     ───▶ Section extraction      ──▶ Uncertainty index
+BOJ / BOE / PBoC       ───▶ FinBERT embedding       ──▶ Forward guidance delta
+Fed governor speeches  ───▶ Sentiment classification──▶ Policy surprise score
+Treasury press briefs  ───▶ Entity linking          ──▶ Instrument mapping
+                            Topic modeling (LDA)         Position signal
+                            Delta vs. prior doc          Portfolio integration
+```
+
+**Key design decisions:**
+
+**1. Document structure parsing:**
+Central bank documents have predictable structure (Economic Assessment → Policy Decision → Forward Guidance). Parse each section separately — forward guidance section is most predictive for rates; economic assessment is most predictive for FX and commodities.
+
+**2. Domain-adapted model:**
+Fine-tune FinBERT on a labeled dataset of central bank statements (hawkish / neutral / dovish). Labels constructed by: (a) expert annotation for seed set, (b) agreement between yield curve response and initial label for expansion.
+
+**3. Delta signal vs. level signal:**
+The level of hawkishness has a slow-moving trend (the hiking cycle is obviously hawkish throughout 2022). The *change* in hawkishness (delta between consecutive statements) is the higher-frequency trading signal. I compute both and test ICs separately.
+
+**4. Cross-central-bank relative signal:**
+Fed hawkishness minus ECB hawkishness → USD/EUR directional signal. This cross-central-bank differential is a powerful FX carry complement.
+
+**5. Calibration:**
+Map raw sentiment scores to expected return distributions via isotonic regression (monotone calibration without distributional assumptions).
+
+**Python 3.13 pipeline sketch:**
+
+```python
+"""Central bank NLP signal with delta and cross-CB differentials.
+
+Follows Google Python Style Guide.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Optional
+
+import pandas as pd
+import numpy as np
+
+
+@dataclass
+class CentralBankSignalConfig:
+    """Config for cross-CB NLP signal."""
+    model_name: str = "nickmuchi/finbert-tone-finetuned-fintwitter-classification"
+    ewma_decay: float = 0.5
+    delta_window: int = 1  # Compare to 1 prior document
+
+
+def build_cross_cb_signal(
+    fed_statements: pd.Series,     # DatetimeIndex → text
+    ecb_statements: pd.Series,     # DatetimeIndex → text
+    nlp_scorer,                     # CentralBankNLPSignal instance
+) -> pd.DataFrame:
+    """Build Fed minus ECB relative hawkishness signal.
+
+    Returns:
+        DataFrame with columns: fed_score, ecb_score, relative_signal.
+        Signal > 0 → long USD vs. EUR; Signal < 0 → short USD vs. EUR.
+
+    Time Complexity: O(N_fed + N_ecb) NLP inference passes.
+    Space Complexity: O(N_fed + N_ecb).
+    """
+    fed_scores = nlp_scorer.build_signal_series(fed_statements)
+    ecb_scores = nlp_scorer.build_signal_series(ecb_statements)
+    # Align to common calendar (forward-fill until next statement)
+    combined = pd.DataFrame({
+        "fed_score": fed_scores,
+        "ecb_score": ecb_scores,
+    }).resample("B").last().ffill()
+    # Relative signal: normalize each by rolling z-score before differencing
+    def zscore(s: pd.Series, w: int = 52) -> pd.Series:
+        return (s - s.rolling(w).mean()) / s.rolling(w).std().replace(0, np.nan)
+
+    combined["fed_z"] = zscore(combined["fed_score"])
+    combined["ecb_z"] = zscore(combined["ecb_score"])
+    combined["relative_signal"] = combined["fed_z"] - combined["ecb_z"]
+    return combined
+```
+
+---
+
+**Follow-up 1:** *"Antoine focuses on NLP for financial news — how would you extend a central bank signal to incorporate broader financial news?"*
+
+**Answer:** "Three extensions. First: **Named entity event extraction** — rather than document-level sentiment, extract entity-event pairs: (Entity='Federal Reserve', Action='rate_hike', Certainty='high', Horizon='next_meeting'). This structured extraction maps more directly to instrument-level signals. Second: **News cascade modeling** — model how a central bank statement generates secondary news: press conferences, analyst reactions, foreign central bank responses. Each secondary document provides a 'consensus formation' signal — when analyst reactions diverge widely (high entropy of responses), uncertainty is high and vol signals should fire. Third: **Real-time wire processing** — Reuters/Bloomberg wire services have 1-2 minute latency before full articles are published; headlines arrive in seconds. Build a headline classifier that generates a preliminary signal from the headline alone, then updates it as the full article arrives. This latency-sensitive pipeline is where C++ NLP inference becomes relevant."
+
+---
+
+**Follow-up 2:** *"What evaluation metric do you use to compare NLP models for financial signal quality?"*
+
+**Answer:** "Not BLEU or perplexity — those are language modeling metrics irrelevant to trading. I use: (1) **Information Coefficient (IC)** — Spearman rank correlation between model score and subsequent return. For a Central Bank NLP model, IC against 1-day and 5-day Eurodollar futures return. (2) **ICIR (IC Information Ratio)** — mean IC / std of IC. Measures consistency of predictive power across different documents. A model with ICIR > 0.3 is reliably predictive. (3) **Decile spread** — sort documents by NLP score, compute mean return in top decile minus bottom decile. For a hawkishness signal, top decile should show consistent negative bond returns. (4) **Event study AUC** — treat this as a binary classification (positive return / negative return post-announcement) and compute AUC. AUC > 0.55 indicates genuine predictive power. These metrics connect directly to trading PnL, which is the ultimate evaluation criterion."
+
+---
+
+## SECTION VIII — QUESTIONS TO ASK ANTOINE
+
+---
+
+<a name="q40"></a>
+### Q40. Best questions to ask Antoine Ledoux at the end of the interview.
+
+*These questions demonstrate research curiosity, firm knowledge, and collaborative intent. Choose 2-3 based on the natural flow of the conversation.*
+
+---
+
+**Q40.1 — Technical depth (highest priority):**
+
+> "Your work focuses on NLP and AI in global macro. I've been building central bank NLP signals using FinBERT and HMM-based regime classification — but I suspect there's a qualitatively different signal in the *structure* of how language changes across the monetary cycle, not just the sentiment level. Is that an area the research team has explored, and what has been the main obstacle to building a stable cross-regime NLP feature?"
+
+*Why this works: It demonstrates you know Antoine's work, shows independent research thinking, and opens a collaborative technical dialogue.*
+
+---
+
+**Q40.2 — Research infrastructure:**
+
+> "Graham uses advanced HPC and big data infrastructure. From a practical standpoint, what does the research environment look like — are researchers working with a shared backtesting framework and common signal interfaces, or is it more individual-based? I've invested heavily in building collaborative research infrastructure at Millburn and Balyasny, and I'm curious where you see the most leverage in improving research throughput."
+
+---
+
+**Q40.3 — Signal library state:**
+
+> "You mentioned Graham runs trend, carry, value, and quant macro components. Where do you see the biggest opportunity for new signals to add genuine diversification — is it in the non-price-based space (alternative data, NLP) or are there specific market structures that are underrepresented in the current library?"
+
+---
+
+**Q40.4 — Success definition:**
+
+> "How is success defined for a Quantitative Research Analyst in the first 12 months at Graham — is it primarily about contributing new signals to the live library, improving existing strategies, or building research infrastructure? I want to make sure I'm calibrating my priorities correctly from day one."
+
+---
+
+**Q40.5 — Team structure:**
+
+> "Tom Feng and Barry Fox manage the Quant Strategies group — how is research organized in practice? Do researchers typically work on a specific signal pillar (trend, carry, etc.) or is the mandate more cross-pillar? And how do researchers interact with the trading desk on execution research?"
+
+---
+
+**Q40.6 — Academic-to-production gap:**
+
+> "One challenge I've seen in NLP for macro is the gap between academic NLP benchmarks and financial signal quality — models that win on FinBERT benchmarks sometimes have poor IC in production. How has the team approached bridging that gap, particularly for rare-event regimes that are underrepresented in financial NLP training data?"
+
+---
+
+## Summarized Question Categorization Table
+
+| # | Category | Difficulty | Antoine's Likely Focus | Key Concept |
+|---|----------|-----------|----------------------|-------------|
+| Q1 | Behavioral | Low | Narrative fit | Career arc → GCM mandate |
+| Q2 | Behavioral | Med | Research ownership | End-to-end signal development |
+| Q3 | Behavioral | Med | Self-awareness | Failure analysis, iteration |
+| Q4 | Behavioral | Low | Culture fit | Independence vs. collaboration |
+| Q5 | Behavioral | Med | Scientific rigor | Falsification framework |
+| Q6 | Behavioral | Low | Communication | Technical simplification |
+| Q7 | Behavioral | Med | Research prioritization | Signal quality filters |
+| Q8 | Behavioral | High | Production ownership | Research-to-production pipeline |
+| Q9 | Signal Dev | High | Implementation | EWMA trend construction + CPCV |
+| Q10 | Signal Dev | High | Multi-asset | Carry construction + crash risk |
+| Q11 | Signal Dev | High | Statistics | ADF, OU process, Hurst |
+| Q12 | Signal Dev | High | Portfolio | Signal combination frameworks |
+| Q13 | Signal Dev | Med | Alpha decay | IC decay measurement |
+| Q14 | Signal Dev | High | ML + Stats | HMM regime detection |
+| Q15 | Signal Dev | High | Portfolio | Marginal diversification test |
+| Q16 | ML/NLP | **Critical** | Antoine's domain | FinBERT, NLP pipeline |
+| Q17 | ML/NLP | **Critical** | Antoine's domain | LLMs in macro research |
+| Q18 | ML/NLP | High | Scientific rigor | CPCV, DSR, anti-overfitting |
+| Q19 | ML/NLP | High | Methodology | GBM vs. Neural Networks |
+| Q20 | ML/NLP | Med | Alt data | 5-stage evaluation framework |
+| Q21 | ML/NLP | High | Feature engineering | Time-series features |
+| Q22 | ML/NLP | High | Antoine's domain | HMM regime classification |
+| Q23 | Port. Const. | High | Portfolio | Multi-signal construction |
+| Q24 | Risk | High | Production | Vol targeting, risk budgeting |
+| Q25 | Risk | Med | Drawdown | Layered DD controls |
+| Q26 | Risk | High | Execution | Almgren-Chriss TCM |
+| Q27 | Risk | Med | Capacity | Strategy capacity estimation |
+| Q28 | Statistics | High | Methodology | Time-series issues |
+| Q29 | Statistics | High | Methodology | GARCH/EGARCH/HAR-RV |
+| Q30 | Statistics | High | Antoine's domain | Bayesian signal sizing |
+| Q31 | Statistics | **Critical** | Scientific rigor | CPCV deep dive |
+| Q32 | Statistics | High | Scientific rigor | Multiple testing, DSR |
+| Q33 | Coding | **Critical** | MIO prep | Python TCA pipeline |
+| Q34 | Coding | High | MIO prep | Volume forecasting + C++26 |
+| Q35 | Coding | High | Performance | C++26 signal engine |
+| Q36 | Coding | High | Scientific rigor | CPCV backtester |
+| Q37 | GCM-Specific | High | Fit | Signal library → GCM pillars |
+| Q38 | GCM-Specific | High | Methodology | Improving existing trend |
+| Q39 | GCM-Specific | **Critical** | Antoine's domain | CB NLP pipeline |
+| Q40 | Q&A | Med | Engagement | Questions to ask Antoine |
+
+---
+
+## Quick Revision Cheatsheet
+
+### Key Formulas to Know Cold
+
+| Formula | Name | Use Case |
+|---------|------|---------|
+| $\sigma_t^2 = \omega + \alpha\epsilon_{t-1}^2 + \beta\sigma_{t-1}^2$ | GARCH(1,1) | Vol forecasting |
+| $\text{IC}(h) = \text{IC}(0) e^{-\lambda h}$ | IC decay | Signal half-life |
+| $\text{Carry}_{FX} = r^{foreign} - r^{domestic}$ | FX Carry | Carry construction |
+| $t_{1/2} = \ln(2)/\theta$ | OU Half-life | Mean reversion speed |
+| $\text{DSR} = \hat{S} \cdot \Phi\left(\frac{(\hat{S} - \overline{S^*})\sqrt{T-1}}{\sqrt{1-\hat\gamma_3 \hat{S} + \frac{\hat\gamma_4-1}{4}\hat{S}^2}}\right)$ | Deflated Sharpe | Multiple testing |
+| $\text{RC}_i = w_i \frac{(\Sigma w)_i}{\sigma_P}$ | Risk Contribution | Risk parity |
+| $\text{IS} = (P_{\text{exec}} - P_{\text{arrival}}) / P_{\text{arrival}} \times 10000$ | Implementation Shortfall | TCA |
+| $P(\mu|\text{data}) \propto P(\text{data}|\mu) P(\mu)$ | Bayes | Signal sizing |
+
+### Key Python Libraries in Context
+
+| Library | Primary Use at GCM |
+|---------|-------------------|
+| `lightgbm` / `xgboost` | Regime classification, signal combination |
+| `transformers` / `finbert` | NLP signal extraction from CB docs |
+| `statsmodels` | OLS regression, GARCH, TCA analysis |
+| `scipy.stats` | IC testing, distribution fitting |
+| `pymc` | Bayesian parameter estimation |
+| `pandas` | Time-series feature engineering |
+| `numpy` | Vectorized computation |
+
+### Three Things Antoine Will Probe Twice
+
+1. **How exactly do you prevent look-ahead bias in NLP features?** → Answer: rolling z-score computed only on prior documents; embargo window around event dates in CPCV
+2. **What breaks your GARCH model?** → Fat tails (use Student-t), regime change, high-frequency microstructure noise
+3. **How do you know your NLP signal isn't just carry in disguise?** → Orthogonalization regression; compute $R^2$ of NLP vs. yield curve features; use residual as pure NLP signal
+
+### 30-Minute Interview Time Allocation
+
+```
+00:00 - 00:02  Brief intro, set-up
+00:02 - 00:12  Behavioral (Q1, Q2 — focus on NLP/production ownership)
+00:12 - 00:25  Technical deep-dive (Q9 or Q16 + Q18 — let Antoine lead)
+00:25 - 00:28  GCM-specific fit (Q37/Q39)
+00:28 - 00:30  Your questions (Q40.1 or Q40.4)
+```
+
+---
+
+*Document prepared for: Shaikat Majumdar | Graham Capital Management screening round | June 3, 2026*  
+*Interviewer: Antoine Ledoux, Quantitative Research Manager (NLP & AI in Global Macro)*
