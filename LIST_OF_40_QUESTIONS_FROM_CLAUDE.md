@@ -103,6 +103,8 @@
 
 **What they want:** A coherent narrative that maps your 17-year arc directly to Graham's systematic macro mandate. They want to see that you are not a generalist but a specialist whose career trajectory logically arrives at GCM.
 
+**[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q1_IN_DEPTH.md#production-grade-engineering-and-mathematical-frameworks-for-systematic-macro-alpha--alternative-data-signals)**
+
 **Model Answer:**
 
 > "My career has been a continuous deepening of systematic macro research. I started at Millburn Ridgefield in 2008, where I spent 14 years building what became a 30+ signal library across global macro futures and liquid FX pairs. The culture at Millburn was deeply scientific — every signal had to survive Combinatorial Purged Cross-Validation before it touched capital, and I internalized that discipline completely. I worked across the full alpha spectrum: trend, carry, value, mean-reversion, and macro event-driven models. I also built the volatility forecasting infrastructure — GARCH, EGARCH, HAR-RV — that fed both our alpha signals and our VaR estimates.
@@ -123,11 +125,15 @@
 
 **Follow-up 1 (Antoine's likely probe):** *"You mention NLP as the next frontier — what specifically have you done with text data so far, and what's the gap you want to close at Graham?"*
 
+**[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q1_IN_DEPTH.md#follow-up-1)**
+
 **Answer:** "At Balyasny I've used NLP primarily for regime detection — feeding central bank communication sentiment scores (FOMC statements, ECB minutes) into my HMM classifier as a soft prior alongside price-based regime signals. I used FinBERT fine-tuned on financial news to generate document-level sentiment and topic embeddings, then fed those as additional features into my ensemble. The gap I want to close is moving from NLP as a feature in an existing model to NLP as a first-class alpha signal in its own right — building a structured event-extraction pipeline that can convert raw news into instrument-level directional signals with confidence scores, latency controls, and proper OOS validation. That is precisely what I understand Antoine has built at Graham."
 
 ---
 
 **Follow-up 2 (Antoine's likely probe):** *"What do you see as the biggest risk in your NLP-derived signals relative to price-based signals?"*
+
+**[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q1_IN_DEPTH.md#follow-up-2)**
 
 **Answer:** "Three structural risks. First, **non-stationarity of language** — the way central banks communicate shifts over time (Greenspan's opacity vs. post-2008 forward guidance vs. 2022 hiking cycle rhetoric), so models trained on 2010-2015 FOMC text may generalize poorly to 2025 regimes. You need rolling re-training windows with careful OOS design. Second, **event clustering** — major macro announcements cluster around economic crises, so your training set will oversample 2008, 2011, 2020 events, and naive cross-validation leaks that. CPCV with embargo periods around events is essential. Third, **alpha decay through reflexivity** — once NLP-based central bank sentiment signals become widely used, markets price them faster, compressing the return window. You need to continuously measure half-life and adapt."
 
@@ -137,6 +143,8 @@
 ### Q2. Describe a systematic signal you built end-to-end — from hypothesis to live deployment.
 
 **What they want:** Research ownership, scientific rigor, production awareness.
+
+**[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q2_IN_DEPTH.md)**
 
 **Model Answer (use the Millburn macro event signal as the centerpiece):**
 
