@@ -105,6 +105,8 @@
 
 **[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q1_IN_DEPTH.md#production-grade-engineering-and-mathematical-frameworks-for-systematic-macro-alpha--alternative-data-signals)**
 
+**[NOTEBOOK](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/NB1_NLP_Macro_Alpha_Semantic_Drift_HMM_Decay.ipynb)**
+
 **Model Answer:**
 
 > "My career has been a continuous deepening of systematic macro research. I started at Millburn Ridgefield in 2008, where I spent 14 years building what became a 30+ signal library across global macro futures and liquid FX pairs. The culture at Millburn was deeply scientific — every signal had to survive Combinatorial Purged Cross-Validation before it touched capital, and I internalized that discipline completely. I worked across the full alpha spectrum: trend, carry, value, mean-reversion, and macro event-driven models. I also built the volatility forecasting infrastructure — GARCH, EGARCH, HAR-RV — that fed both our alpha signals and our VaR estimates.
@@ -146,6 +148,8 @@
 
 **[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q2_IN_DEPTH.md)**
 
+**[NOTEBOOK](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/NB2_Event_Driven_Vol_Surface_Semantic_Surprise.ipynb)**
+
 **Model Answer (use the Millburn macro event signal as the centerpiece):**
 
 > "I'll walk you through the Central Bank event-driven signal I built at Millburn. The hypothesis originated from observing that realized volatility in rates and FX spiked asymmetrically around FOMC decisions — but the direction of the subsequent move had a predictable component if you conditioned on the surprise component of the statement.
@@ -179,6 +183,8 @@
 
 **[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q3_IN_DEPTH.md)**
 
+**[NOTEBOOK](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/NB3_Commodity_Momentum_Roll_Decomposition_COT.ipynb)**
+
 **Model Answer:**
 
 > "At Millburn I built a cross-sectional momentum signal for commodity futures that used 12-1 month returns as the ranking variable — standard Jegadeesh-Titman. The backtest looked excellent: annualized Sharpe of 1.4, max drawdown 12%. When we deployed it in 2014, it immediately entered a prolonged drawdown.
@@ -206,6 +212,8 @@
 
 **[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q4_IN_DEPTH.md)**
 
+**[NOTEBOOK](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/NB4_Factor_Orthogonalization_Risk_Alignment.ipynb)**
+
 **Model Answer:**
 
 > "My philosophy: independent research earns credibility, team alignment determines impact. At Millburn, the research culture gave researchers wide latitude to pursue independent hypotheses — but the signal library had to fit the portfolio's diversification mandate. My event-driven macro signals were self-initiated but I always framed them against the portfolio's existing exposure map to demonstrate orthogonality. At Highbridge, the feedback loop was tighter — we had weekly TCA reviews where the trading desk shared slippage observations, and those observations directly seeded my research agenda. At Balyasny, I own P&L, so the feedback loop is financial — if my signal doesn't contribute positively, there's no debate. The lesson from all three: research independence is most valuable when combined with relentless alignment on what the portfolio actually needs. I don't pursue signals that are interesting to me but redundant to the existing library."
@@ -228,6 +236,8 @@
 ### Q5. How do you apply the scientific method in your research process?
 
 **[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q5_IN_DEPTH.md)**
+
+**[NOTEBOOK](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/NB5_Scientific_Method_CPCV_Bayesian_Falsification.ipynb)**
 
 **Model Answer:**
 
@@ -252,6 +262,8 @@
 
 **[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q6_IN_DEPTH.md)**
 
+**[NOTEBOOK](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/NB6_HMM_Regime_Override_Audit_Framework.ipynb)**
+
 **Model Answer:**
 
 > "I use three techniques: (1) **Analogy to a familiar process** — I once explained Bayesian updating to a CIO by comparing it to a doctor who starts with a base-rate diagnosis and then updates it as test results come in. (2) **What it does vs. how it works** — most stakeholders need to understand the decision a model makes and its failure modes, not its mathematical internals. For our HMM regime classifier, I said: 'Think of it as a weather system that tells you whether we're in a trending regime or a choppy regime, and adjusts our signal weights accordingly. It's wrong sometimes, especially at transitions.' (3) **Confidence intervals, not point estimates** — I present signals with their confidence bands. 'Our trend signal expects a 1.2 Sharpe, with 80% confidence interval from 0.6 to 1.8. In a choppy sideways market, we'd expect the lower end of that range.' This builds appropriate expectations and prevents the 'why is the model wrong this month?' conversation."
@@ -275,6 +287,8 @@
 
 **[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q7_IN_DEPTH.md)**
 
+**[NOTEBOOK](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/NB7_Research_Prioritization_MIC_Rademacher_BIC.ipynb)**
+
 **Model Answer:**
 
 > "I use a three-filter prioritization framework. **Filter 1 — Economic rationale**: Does the idea have a clear mechanism that explains *why* it should work and *when* it should fail? Ideas with no mechanism story get shelved immediately. **Filter 2 — Marginal contribution**: Even if the idea works, does it add diversification to what we already have? I map candidate signals against the existing signal library's factor loadings. If a new signal is 85% correlated with an existing one, the marginal Sharpe improvement is minimal — not worth the complexity. **Filter 3 — Implementation feasibility**: Can the signal be executed at the capacity and latency required? A signal that requires tick data to construct but only generates 10 trades per year for a 5-minute window is not implementable at scale. If an idea passes all three filters, it goes into the research queue. I time-box research: 2 weeks for initial signal construction and hypothesis test, go/no-go at that gate before investing more time."
@@ -297,6 +311,8 @@
 ### Q8. Walk me through your experience taking a strategy from research prototype to live trading.
 
 **[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q8_IN_DEPTH.md)**
+
+**[NOTEBOOK](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/NB8_Productionization_OFI_CPCV_KL_Drift.ipynb)**
 
 **Model Answer:**
 
