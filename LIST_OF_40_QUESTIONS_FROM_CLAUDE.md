@@ -20,10 +20,10 @@
 |---|----------|---------|
 | **BEHAVIORAL** | | |
 | | | |
-| [Q1](#q1-walk-me-through-your-background-and-why-graham-capital) | Background & Fit | Walk me through your background and why Graham Capital. |
-| [Q2](#q2-describe-a-systematic-signal-you-built-end-to-end--from-hypothesis-to-live-deployment) | Research Ownership | Describe a systematic signal you built end-to-end — from hypothesis to live deployment. |
-| [Q3](#q3-tell-me-about-a-signal-or-model-that-failed-and-what-you-learned) | Failure & Learning | Tell me about a signal or model that failed and what you learned. |
-| [Q4](#q4-how-do-you-balance-independent-research-with-team-driven-objectives) | Collaboration | How do you balance independent research with team-driven objectives? |
+| [Q1](#q1) | Background & Fit | Walk me through your background and why Graham Capital. |
+| [Q2](#q2) | Research Ownership | Describe a systematic signal you built end-to-end — from hypothesis to live deployment. |
+| [Q3](#q3) | Failure & Learning | Tell me about a signal or model that failed and what you learned. |
+| [Q4](#q4) | Collaboration | How do you balance independent research with team-driven objectives? |
 | [Q5](#q5) | Scientific Method | How do you apply the scientific method in your research process? |
 | [Q6](#q6) | Communication | How do you explain complex quant ideas to non-quant stakeholders? |
 | [Q7](#q7) | Prioritization | How do you decide what research ideas to pursue vs. shelve? |
@@ -177,6 +177,8 @@
 <a name="q3"></a>
 ### Q3. Tell me about a signal or model that failed and what you learned.
 
+**[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q3_IN_DEPTH.md)**
+
 **Model Answer:**
 
 > "At Millburn I built a cross-sectional momentum signal for commodity futures that used 12-1 month returns as the ranking variable — standard Jegadeesh-Titman. The backtest looked excellent: annualized Sharpe of 1.4, max drawdown 12%. When we deployed it in 2014, it immediately entered a prolonged drawdown.
@@ -202,6 +204,8 @@
 <a name="q4"></a>
 ### Q4. How do you balance independent research with team-driven objectives?
 
+**[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q4_IN_DEPTH.md)**
+
 **Model Answer:**
 
 > "My philosophy: independent research earns credibility, team alignment determines impact. At Millburn, the research culture gave researchers wide latitude to pursue independent hypotheses — but the signal library had to fit the portfolio's diversification mandate. My event-driven macro signals were self-initiated but I always framed them against the portfolio's existing exposure map to demonstrate orthogonality. At Highbridge, the feedback loop was tighter — we had weekly TCA reviews where the trading desk shared slippage observations, and those observations directly seeded my research agenda. At Balyasny, I own P&L, so the feedback loop is financial — if my signal doesn't contribute positively, there's no debate. The lesson from all three: research independence is most valuable when combined with relentless alignment on what the portfolio actually needs. I don't pursue signals that are interesting to me but redundant to the existing library."
@@ -222,6 +226,8 @@
 
 <a name="q5"></a>
 ### Q5. How do you apply the scientific method in your research process?
+
+**[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q5_IN_DEPTH.md)**
 
 **Model Answer:**
 
@@ -244,6 +250,8 @@
 <a name="q6"></a>
 ### Q6. How do you explain complex quant ideas to non-quant stakeholders?
 
+**[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q6_IN_DEPTH.md)**
+
 **Model Answer:**
 
 > "I use three techniques: (1) **Analogy to a familiar process** — I once explained Bayesian updating to a CIO by comparing it to a doctor who starts with a base-rate diagnosis and then updates it as test results come in. (2) **What it does vs. how it works** — most stakeholders need to understand the decision a model makes and its failure modes, not its mathematical internals. For our HMM regime classifier, I said: 'Think of it as a weather system that tells you whether we're in a trending regime or a choppy regime, and adjusts our signal weights accordingly. It's wrong sometimes, especially at transitions.' (3) **Confidence intervals, not point estimates** — I present signals with their confidence bands. 'Our trend signal expects a 1.2 Sharpe, with 80% confidence interval from 0.6 to 1.8. In a choppy sideways market, we'd expect the lower end of that range.' This builds appropriate expectations and prevents the 'why is the model wrong this month?' conversation."
@@ -265,6 +273,8 @@
 <a name="q7"></a>
 ### Q7. How do you decide what research ideas to pursue vs. shelve?
 
+**[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q7_IN_DEPTH.md)**
+
 **Model Answer:**
 
 > "I use a three-filter prioritization framework. **Filter 1 — Economic rationale**: Does the idea have a clear mechanism that explains *why* it should work and *when* it should fail? Ideas with no mechanism story get shelved immediately. **Filter 2 — Marginal contribution**: Even if the idea works, does it add diversification to what we already have? I map candidate signals against the existing signal library's factor loadings. If a new signal is 85% correlated with an existing one, the marginal Sharpe improvement is minimal — not worth the complexity. **Filter 3 — Implementation feasibility**: Can the signal be executed at the capacity and latency required? A signal that requires tick data to construct but only generates 10 trades per year for a 5-minute window is not implementable at scale. If an idea passes all three filters, it goes into the research queue. I time-box research: 2 weeks for initial signal construction and hypothesis test, go/no-go at that gate before investing more time."
@@ -285,6 +295,8 @@
 
 <a name="q8"></a>
 ### Q8. Walk me through your experience taking a strategy from research prototype to live trading.
+
+**[IN-DEPTH ANSWER](./LIST_OF_40_QUESTIONS_FROM_CLAUDE/Q8_IN_DEPTH.md)**
 
 **Model Answer:**
 
