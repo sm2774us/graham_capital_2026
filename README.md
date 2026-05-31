@@ -5,6 +5,17 @@
 
 ---
 
+## Cheatsheets
+
+* [Calculus Reference](./CALCULUS_REFERENCE.md)
+* **🏦 Quant Research Compendium**
+  * [Volume A: `NumPy` · `Pandas` · `Polars`](./PYTHON_LIBRARIES_COMPENDIUM/quant_doc_A_numpy_pandas_polars.md)
+  * [Volume B: `SciPy` · `CVXPY` · `Scikit-Learn` · `Statsmodels`](./PYTHON_LIBRARIES_COMPENDIUM/quant_doc_B_scipy_cvxpy_sklearn_statsmodels.md)
+  * [Volume C: Visualization Stack](./PYTHON_LIBRARIES_COMPENDIUM/quant_doc_C_visualization.md)
+  * [Volume D: Machine Learning Libraries](./PYTHON_LIBRARIES_COMPENDIUM/quant_doc_D_machine_learning.md)
+
+---
+
 ## Table of Contents
 
 | # | Category | Question |
