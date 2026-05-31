@@ -25,6 +25,8 @@
 
 **[IN-DEPTH ANSWER](./LIST_OF_50_QUESTIONS_FROM_GEMINI/Q1_IN_DEPTH.md)**
 
+**[NOTEBOOK](./LIST_OF_50_QUESTIONS_FROM_GEMINI/NB1_Almgren_Chriss_GJR_GARCH.ipynb)**
+
 **Answer:**
 Over my 17-year career across Millburn, Highbridge (J.P. Morgan), and Balyasny, I have owned the full end-to-end lifecycle of systematic macro strategies. At Millburn, I architected a 30-signal systematic macro research library covering global futures and FX pairs, leveraging Combinatorial Purged Cross-Validation (CPCV) to eliminate data leakage. At Highbridge, I transitioned closer to execution microstructure, designing adverse selection models and training autoencoders on limit order book (LOB) data to minimize execution slippage. Currently at Balyasny, I manage an end-to-end mid-frequency multi-asset portfolio spanning FX, commodities, and fixed income.
 
@@ -48,6 +50,8 @@ Graham Capital manages $22B systematically by scaling fundamental macro ideas in
 ### Q2: How do you balance the implementation of rigorous scientific methodology with the fast-paced, practical demands of a live execution desk?
 
 **[IN-DEPTH ANSWER](./LIST_OF_50_QUESTIONS_FROM_GEMINI/Q2_IN_DEPTH.md)**
+
+**[NOTEBOOK](./LIST_OF_50_QUESTIONS_FROM_GEMINI/NB2_Regime_Switching_Execution.ipynb)**
 
 **Answer:**
 A model that cannot be reliably deployed to production is useless. I structure my workflow around an iterative, closed-loop research-to-production framework:
@@ -80,6 +84,8 @@ I establish weekly slippage review dashboards with the trading desk. Traders reg
 
 **[IN-DEPTH ANSWER](./LIST_OF_50_QUESTIONS_FROM_GEMINI/Q3_IN_DEPTH.md)**
 
+**[NOTEBOOK](./LIST_OF_50_QUESTIONS_FROM_GEMINI/NB3_PCA_Autoencoder_LOB.ipynb)**
+
 **Answer:**
 At Highbridge, our mid-frequency futures execution framework suffered from high implementation shortfall during volatile regimes due to adverse selection. I researched and engineered an autoencoder framework combined with PCA to compress limit order book (LOB) states into a real-time "toxic flow" probability signal.
 
@@ -97,6 +103,8 @@ The research was prototyped in Python using PyTorch and Polars. To meet performa
 ### Q4: How will you approach your research and communication within Graham Capital’s multi-department structure, specifically when presenting ideas to the investment committee?
 
 **[IN-DEPTH ANSWER](./LIST_OF_50_QUESTIONS_FROM_GEMINI/Q4_IN_DEPTH.md)**
+
+**[NOTEBOOK](./LIST_OF_50_QUESTIONS_FROM_GEMINI/NB4_SHAP_Macro_PIT.ipynb)**
 
 **Answer:**
 Alpha generation is an institutional team sport. I structure my research documentation to be reproducible and accessible across teams. When presenting complex machine learning or NLP strategies to an investment committee, I avoid treating the models as black boxes. Instead, I frame the explanation around three core components:
@@ -123,6 +131,8 @@ I maintain collaborative relationships with technology, operations, and complian
 ### Q5: How do you manage your research life cycle to prevent the common pitfall of backtest overfitting in machine learning macro models?
 
 **[IN-DEPTH ANSWER](./LIST_OF_50_QUESTIONS_FROM_GEMINI/Q5_IN_DEPTH.md)**
+
+**[NOTEBOOK](./LIST_OF_50_QUESTIONS_FROM_GEMINI/NB5_CPCV_Monotonic_Encoding.ipynb)**
 
 **Answer:**
 Overfitting is the single largest destroyer of capital in systematic macro. I mitigate this risk by enforcing three core practices:
@@ -153,6 +163,8 @@ Overfitting is the single largest destroyer of capital in systematic macro. I mi
 
 **[IN-DEPTH ANSWER](./LIST_OF_50_QUESTIONS_FROM_GEMINI/Q6_IN_DEPTH.md)**
 
+**[NOTEBOOK](./LIST_OF_50_QUESTIONS_FROM_GEMINI/NB6_Infrastructure_Invariance.ipynb)**
+
 **Answer:**
 Infrastructure transitions present an opportunity to standardize workflows and modernize technical debt. When managing platform or firm shifts, I prioritize continuity of research by implementing three principles:
 
@@ -175,6 +187,8 @@ Infrastructure transitions present an opportunity to standardize workflows and m
 ### Q7: Explain your experience with trading multi-asset macro spaces (FX, Commodities, Fixed Income) and how microstructure differences impact your signal design.
 
 **[IN-DEPTH ANSWER](./LIST_OF_50_QUESTIONS_FROM_GEMINI/Q7_IN_DEPTH.md)**
+
+**[NOTEBOOK](./LIST_OF_50_QUESTIONS_FROM_GEMINI/NB7_EGARCH_OFI_MultiAsset.ipynb)**
 
 **Answer:**
 Each asset class exhibits unique microstructure characteristics that require distinct signal tuning:
@@ -208,6 +222,8 @@ Each asset class exhibits unique microstructure characteristics that require dis
 ### Q8: How do you approach the continuous evaluation of existing alpha models to determine if underperformance stems from alpha decay or a temporary regime mismatch?
 
 **[IN-DEPTH ANSWER](./LIST_OF_50_QUESTIONS_FROM_GEMINI/Q8_IN_DEPTH.md)**
+
+**[NOTEBOOK](./LIST_OF_50_QUESTIONS_FROM_GEMINI/NB8_HMM_Kelly_Decay.ipynb)**
 
 **Answer:**
 When a model underperforms its backtested expectations, I run a formal statistical diagnostic framework:
